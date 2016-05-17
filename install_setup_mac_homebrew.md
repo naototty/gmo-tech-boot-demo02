@@ -22,16 +22,24 @@ Mac OS Xにはrubyが入っていますので、それを利用します。
 また、インストールでコンパイルが必要な物は、XcodeのCLI Toolsが必要なので、それをまずインストールします。
 
 "xcode-select" というコマンドが、標準で入っています。
-入っていると、以下のようにDialogが出ます。
 
 ```bash:CLI
 $ xcode-select --install
+xcode-select: note: install requested for command line developer tools
 ```
-<画像: xcode-select diablog>
 
-Xcode自体が入っていない場合には、このDialogの「Xcodeを入手」のボタンをおして、まずインストールします。
+コマンドを叩いて、xcodeが入っていない場合、Dialogが開いて、インストールされるように誘導されます。
+
+Xcode自体が入っていない場合には、ここで開いたDialogの「Xcodeを入手」のボタンをおして、まずインストールします。
 
 入っていない場合には、Mac App StoreからXcodeを検索して、Xcodeをインストールします。
+
+
+```bash:CLI
+$ xcode-select --install
+xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+```
+
 
 以下のURLからMac App Storeに移動できます
 https://developer.apple.com/xcode/download/jp/
@@ -41,7 +49,7 @@ https://developer.apple.com/xcode/download/jp/
 インストール後、terminalで
 
 
-公式インストールコマンド
+公式 HomeBrew インストールコマンド
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
