@@ -1,0 +1,23 @@
+
+ID_EMAIL='naoto-gohko@plastic-machine.red'
+
+## IF your login conoha control panel
+## See. API page : https://manage.conoha.jp/API/
+
+export OS_TENANT_NAME='gnct5********'
+export OS_TENANT_ID='aefde******************'
+
+export OS_PASSWORD='hoge*****'
+export OS_USERNAME='gncu5*******'
+
+## bellow :: no change
+## We use sjc1 region (US, San Jose)
+export OS_AUTH_URL='https://identity.sjc1.conoha.io/v2.0/'
+export OS_REGION_NAME=sjc1
+
+export OS_VOLUME_API_VERSION=2
+export OS_IMAGE_API_VERSION=2
+export OS_COMPUTE_API_VERSION=2
+export PS1='[\u@\h \W(keystone_nwe_conoha_$OS_USERNAME.$OS_REGION_NAME)]\$ '
+
+

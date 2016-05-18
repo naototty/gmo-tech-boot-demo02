@@ -4,6 +4,8 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+VAGRANT_DEFAULT_PROVIDER = "vagrant-conoha"
+
 
 ### shell provisioning script ### =========================
 $script_node1 = <<SCRIPT
@@ -48,7 +50,7 @@ php-mcrypt
 cp -avf /etc/php.ini /etc/php.ini-ORIG
 echo "date.timezone = Asia/Tokyo" >> /etc/php.ini
 echo "<?php" > /var/www/test/node01.dev/public_html/index.php
-echo "  echo \"this is node1.dev host\n\";" >> /var/www/test/node01.dev/public_html/index.php
+echo "  echo 'this is node1.dev host\n';" >> /var/www/test/node01.dev/public_html/index.php
 echo "  phpinfo();" >> /var/www/test/node01.dev/public_html/index.php
 
 chkconfig httpd on
@@ -59,6 +61,79 @@ service httpd reload
 SCRIPT
 ### ### =================================
 
+###################################################
+# conoha info
+#
+# tyo1)]$ openstack flavor list
+#     +--------------------------------------+--------+-------+------+-----------+-------+-----------+
+#     | ID                                   | Name   |   RAM | Disk | Ephemeral | VCPUs | Is Public |
+#     +--------------------------------------+--------+-------+------+-----------+-------+-----------+
+#     | 294639c7-72ba-43a5-8ff2-513c8995b869 | g-2gb  |  2048 |   50 |         0 |     3 | True      |
+#     | 3aa001cd-95b6-46c9-a91e-e62d6f7f06a3 | g-16gb | 16384 |   50 |         0 |     8 | True      |
+#     | 62e8fb4b-6a26-46cd-be13-e5bbf5614d15 | g-4gb  |  4096 |   50 |         0 |     4 | True      |
+#     | 7eea7469-0d85-4f82-8050-6ae742394681 | g-1gb  |  1024 |   50 |         0 |     2 | True      |
+#     | 965affd4-d9e8-4ffb-b9a9-624d63e2d83f | g-8gb  |  8192 |   50 |         0 |     6 | True      |
+#     | a20905c6-3733-46c4-81cc-458c7dca1bae | g-32gb | 32768 |   50 |         0 |    12 | True      |
+#     | c2a97b05-1b4b-4038-bbcb-343201659279 | g-64gb | 65536 |   50 |         0 |    24 | True      |
+#     +--------------------------------------+--------+-------+------+-----------+-------+-----------+
+#
+
+# tyo1)]$ openstack image list
+#     +--------------------------------------+----------------------------------+
+#     | ID                                   | Name                             |
+#     +--------------------------------------+----------------------------------+
+#     | 569a18e8-a633-4daa-bf97-ac06109908db | vmi-hinemos-5.0-centos-7.2       |
+#     | fc191e19-83f7-4bf0-a689-3c9bb6fb1d13 | vmi-drupal-8.0-centos-7.2        |
+#     | b10f107a-4ac3-4b58-b3b8-82a3b69784cc | vmi-drupal-7.43-centos-7.2       |
+#     | ef129add-2675-4472-be9f-667baa83bd63 | vmi-wordpress-kusanagi-centos-7  |
+#     | 72dc084f-3171-4a15-8352-dd17cc2f225b | vmi-jenkins-1.6-centos-7.2       |
+#     | 5dab40a4-060b-4ca2-a896-bfb72715170e | vmi-meanjs-latest-centos-7.2     |
+#     | e81f3ed7-07a1-4096-aaed-3b27ad7e5ba7 | vmi-gitlab-8.5-centos-7          |
+#     | 6bc0a02a-0275-42ef-a9ba-d4834dc99563 | vmi-piwik-2.16-centos-7.2        |
+#     | 62562bcb-0e5b-4176-b863-feaecda1f05c | vmi-mosquitto-1.4-centos-7.2     |
+#     | 9c8ff6f5-92c2-406d-9f0d-a7f9b2c81772 | vmi-concrete5-5.7-centos-7.2     |
+#     | 2612f9a7-5a09-4261-ad44-3db3f769b59c | vmi-lamp-centos-7.2              |
+#     | 810031c3-d0b2-424c-a79d-5fb7c8058042 | vmi-owncloud-9.0-centos-7.2      |
+#     | fc3c5233-5621-4bcf-bb41-35197ccd50fe | vmi-mongodb-3.2-centos-7         |
+#     | b4c0aae3-158f-4686-9158-950066ce11d6 | vmi-docker-1.10-ubuntu-14.04     |
+#     | ed6364b8-9fb2-479c-a5a8-bde9ba1101f3 | vmi-fedora-23-amd64              |
+#     | 8700e968-ace2-4397-a917-6b34bfe1c6be | vmi-opensuse-42.1-amd64          |
+#     | d7810c4a-614e-433a-936d-ff6cd6b2cd0c | vmi-scientific-7.2-amd64         |
+#     | f5e5b475-ebec-4973-99c7-bc8add5d16c4 | vmi-arch-amd64                   |
+#     | 8e43c7f6-5c32-4ebd-87db-36f9d1444536 | vmi-debian-7-amd64               |
+#     | 5cbfd6b8-67c0-44e3-932a-550b0f9a981a | vmi-debian-7-i386                |
+#     | c14d5dd5-debc-464c-9cc3-ada6e48f5d0c | vmi-debian-8-amd64               |
+#     | 842e6111-b5cd-4782-b423-3c68e66277b0 | vmi-debian-8-i386                |
+#     | e6f59a37-93d2-47cc-91a2-eb35abdfe45b | vmi-centos-7.2-amd64             |
+#     | 21113ec0-3d41-499b-8733-812eb4230e7b | vmi-centos-7-amd64               |
+#     | cd13a8b9-6b57-467b-932e-eee5edcd8d6c | vmi-centos-6.7-amd64             |
+#     | 9ef2815a-23a9-4647-97f0-4047b3a819a3 | vmi-centos-6.7-i386              |
+#     | 49848467-c2b6-4d45-b8af-3b62dd4dbfde | vmi-centos-6.6-amd64             |
+#     | 793be3e1-3c33-4ab3-9779-f4098ea90eb5 | vmi-ubuntu-14.04-amd64           |
+#     | e5b34609-becb-415a-9818-b6e29f4d877a | vmi-ubuntu-14.04-i386            |
+#     | b6a8a76b-c2ef-445d-a81f-19547eeb1301 | vmi-ubuntu-12.04-amd64           |
+#     | ddec4c3d-5e9c-46fb-bfe7-5362e058067d | vmi-ubuntu-12.04-i386            |
+#     | da1da341-d68c-4fa7-b283-70019fba6b36 | vmi-centos-6.6-i386              |
+#     | 63557b31-feae-4e46-8bef-0b0f8e82614e | vmi-joomla-3.4-centos-7          |
+#     | edf80c2c-fdf7-45ee-b625-9e18d40cedc6 | vmi-zabbix-2.4-centos-7          |
+#     | 22fa65b1-4061-4900-95ee-7e6cc61b02ae | vmi-openbsd-5.8-amd64            |
+#     | ac3cdd29-d715-4af5-a283-11d5519fd87e | vmi-netbsd-7.0-amd64             |
+#     | 947d76be-1a12-4e32-b664-0850ed72fb78 | vmi-codiad-2.6-centos-6.7        |
+#     | 10a64cb3-ba78-4ace-aa8d-fbda5c3bd773 | vmi-hubot-2.16-centos-6.7        |
+#     | b3b42464-01c0-49bb-b360-ad4f46024775 | vmi-drone-0.3-ubuntu-14.04       |
+#     | b6aa881c-90fe-4265-bf04-bde508f1522d | vmi-ror-4.2-centos-6.7           |
+#     | 146135a2-9a0e-47ae-9ace-47ea6bb1eaeb | vmi-trac-1.0-centos-6.7          |
+#     | 527c7fe2-6a1f-43af-a8b6-f8bb9faddcda | vmi-basercms-3.0-centos-6.7      |
+#     | 48e2fd82-52a6-4ed3-b2e6-8df06950bd82 | vmi-redmine-3.1-centos-6.7       |
+#     | b212d833-0226-4f21-b6c5-466f02d1099f | vmi-django-1.8-centos-6.7        |
+#     | 88e92006-2599-4ac4-ae07-2beb9eae3322 | vmi-redis-3.0-centos-6.7         |
+#     | 831a42f5-e0ae-4d9b-9ec0-904e720fbbc3 | vmi-freebsd-10.1-zfs-x86_64      |
+#     | 6180dcf9-7a65-445a-9301-0882ad2f1338 | vmi-freebsd-10.1-x86_64          |
+#     | acfb0e18-2be5-4f35-b073-af7ecd252bfb | vmi-hadoop-2.6-slave-centos-6.6  |
+#     | ec4b8b29-2a8f-426f-b865-0839fdf655d9 | vmi-hadoop-2.6-master-centos-6.6 |
+#     +--------------------------------------+----------------------------------+
+#
+###################################################
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -69,9 +144,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ## config.vm.box = "puphpet/centos65-x64"
   ## config.vm.box_url = "http://conoha.macpoi.me/demo/demo01-vagrant-512mb/centos65-x86_64-20140116.box"
   #
-  config.vm.box = "gtb-centos65-x64"
-  ## config.vm.box = "puphpet/centos65-x64"
-  config.vm.box_url = "https://conoha.macpoi.me/demo02/gtb-centos65-x64.box"
+  ## for ConoHa (in cloud)
+  config.vm.box       = 'dummy'
+  config.ssh.username = 'root'
+
+  ## for VirtualBox (in your desktop)
+  ## config.vm.box = "gtb-centos65-x64"
+  ## config.vm.box_url = "https://conoha.macpoi.me/demo02/gtb-centos65-x64.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -102,13 +181,39 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   #
-  config.vm.synced_folder "./share", "/vagrant_data"
-  ## config.vm.synced_folder "./source/node01.dev", "/var/www/test/node01.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :extra => 'dmode=777,fmode=666'
-  config.vm.synced_folder "./source/node01.dev", "/var/www/test/node01.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :mount_options => ['dmode=777', 'fmode=666']
   ##
 
-  # sudo yum install docker-io
+  config.vm.provider :conoha do |conoha|
+    config.vm.synced_folder "./share", "/vagrant_data", disabled: true, :create => true, :owner => 'vagrant', :group => 'vagrant'
+    config.vm.synced_folder "./source/node01.dev", "/var/www/test/node01.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :mount_options => ['dmode=777', 'fmode=666']
 
+    ## conoha.openstack_auth_url = 'https://identity.tyo1.conoha.io/v2.0'
+    conoha.openstack_auth_url = "#{ENV['OS_AUTH_URL']}"
+
+    conoha.username           = "#{ENV['OS_USERNAME']}"
+    conoha.password           = "#{ENV['OS_PASSWORD']}"
+    conoha.tenant_name        = "#{ENV['OS_TENANT_NAME']}"
+
+    conoha.flavor             = 'g-1gb'
+    conoha.image              = 'vmi-centos-6.7-amd64'
+    conoha.region             = "#{ENV['OS_REGION_NAME']}"
+    conoha.admin_pass         = "AdminPass2983*"
+    conoha.metadata           = {
+      instance_name_tag: "vagrant_web_ce67"
+    }
+    conoha.security_groups    = [
+      "default",
+      "gncs-ipv4-all",
+      "gncs-ipv6-all"
+    ]
+    conoha.keypair_name       = "my-local-key"
+    config.ssh.private_key_path = "~/.ssh/id_rsa"
+    config.ssh.pty = true
+
+    config.vm.provision :shell, :inline => $script_node1
+  end
+  ## end conoha provider ####################
+   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -121,38 +226,38 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   vb.customize ["modifyvm", :id, "--memory", "1024"]
   # end
   config.vm.provider "virtualbox" do |vb|
+    config.vm.synced_folder "./share", "/vagrant_data"
+    config.vm.synced_folder "./source/node01.dev", "/var/www/test/node01.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :mount_options => ['dmode=777', 'fmode=666']
+    #
     # Don't boot with headless mode
     ## vb.gui = true
     vb.gui = false
   
     # Use VBoxManage to customize the VM. For example to change memory:
-    ## vb.customize ["modifyvm", :id, "--memory", "1024"]
-    ## vb.customize ["modifyvm", :id, "--memory", "512"]
-  end
+    vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.name = "node1"
 
-  config.vm.define :node1 do |cur_node|
-    ## for 64bit vm
-    ## cur_node.vm.box = "centos6"
-    ## for 32bit vm
-    ## cur_node.vm.box = "centos6-i386"
-    cur_node.vm.hostname = "node1.dev"
-    #
-    cur_node.vm.network :forwarded_port, guest: 22, host: 2201, id: "ssh"
-    cur_node.vm.network :forwarded_port, guest: 80, host: 8001, id: "http"
-    cur_node.vm.network :private_network, ip: "192.168.33.11"
+    config.vm.define :node1 do |cur_node|
+      ## for 64bit vm
+      ## cur_node.vm.box = "centos6"
+      ## for 32bit vm
+      ## cur_node.vm.box = "centos6-i386"
+      #
+      cur_node.vm.hostname = "node1.dev"
+      #
+      cur_node.vm.network :forwarded_port, guest: 22, host: 2201, id: "ssh"
+      cur_node.vm.network :forwarded_port, guest: 80, host: 8001, id: "http"
+      cur_node.vm.network :private_network, ip: "192.168.33.11"
 
-    cur_node.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "512"]
-      vb.name = "node1"
+
+      #cur_node.vm.provision "shell" do |shell|
+      #  #shell.inline: "echo node1"
+      #  #shell.inline: "sed -i -e '/HOSTNAME/d' /etc/sysconfig/network"
+      #  #shell.inline: "echo 'HOSTNAME=node1.dev' >> /etc/sysconfig/network"
+      #  #shell.inline: "hostname -f node1.dev"
+      #end
+      cur_node.vm.provision :shell, :inline => $script_node1
     end
-
-    #cur_node.vm.provision "shell" do |shell|
-    #  #shell.inline: "echo node1"
-    #  #shell.inline: "sed -i -e '/HOSTNAME/d' /etc/sysconfig/network"
-    #  #shell.inline: "echo 'HOSTNAME=node1.dev' >> /etc/sysconfig/network"
-    #  #shell.inline: "hostname -f node1.dev"
-    #end
-    cur_node.vm.provision :shell, :inline => $script_node1
   end
 
   #config.vm.define :node2 do |cur_node|
