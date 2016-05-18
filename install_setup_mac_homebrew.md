@@ -1,11 +1,11 @@
-# install_setup_mac_homebrew.md
+# 1-A) install_setup_mac_homebrew.md
 ===============
 
 HandsOnでは、Mac OS XとWindowsで共に開発に必要な環境をセットアップして利用します。Macでは"HomeBrew", Windowsでは"Chocolatey"です。
 
 下記では、MacでのLocal環境構築をまず記載します
 
-## HomeBrew
+## A1) HomeBrew
 
 Mac OS X(Yosemite:10.10.x, El Capitan:10.11.x)でのHandsOnでの初期セットアップです。
 
@@ -17,7 +17,7 @@ Mac OS X(Yosemite:10.10.x, El Capitan:10.11.x)でのHandsOnでの初期セット
 http://brew.sh/index_ja.html
 
 
-### "Xcode"と"Command Line Tools for Xcode"のインストール
+### A1-1) "Xcode"と"Command Line Tools for Xcode"のインストール
 Mac OS Xにはrubyが入っていますので、それを利用します。
 また、インストールでコンパイルが必要な物は、XcodeのCLI Toolsが必要なので、それをまずインストールします。
 
@@ -51,7 +51,7 @@ https://developer.apple.com/xcode/download/jp/
 
 
 
-### HomeBrewのインストール
+### A1-2) HomeBrewのインストール
 
 xcodeインストール後、terminalを開いて、HomeBrewをインストールします
 
@@ -129,12 +129,12 @@ Run \`brew missing\` for more details.
 "Warning:"で表示されているところは、 なにかあったら、振り返って治す必要があるかもしれないところです。なにかでインストール失敗などした時に、"brew docker" コマンドで確認します。
 
 
-## install HandsOn Tools
+## A2) install HandsOn Tools
 
 ハンズオンで使用するツールをインストールしていきます。
 
 
-### Castroom
+### A2-1) Castroom
 
 brewのpluginのリポジトリのようなものです。
 
@@ -150,14 +150,14 @@ brew tap caskroom/cask
 ```
 
 
-### git
+### A2-2) git
 gitはCVS(コンテンツ・バージョン管理・システム)です。githubを活用しますので、インストールします。
 
 ```bash
 $ brew install git
 ```
 
-### virtualbox, virtualbox-extension-pack
+### A2-3) virtualbox, virtualbox-extension-pack
 先ほど入れたHomeBrew Castを活用します
 
 "virtualbox" で brewコマンドでsearchすると、以下のものが検索されます。
@@ -223,7 +223,7 @@ Successfully installed "Oracle VM VirtualBox Extension Pack".
 🍺  virtualbox-extension-pack staged at '/opt/homebrew-cask/Caskroom/virtualbox-extension-pack/5.0.20-106931' (16M)
 ```
 
-### Editor: vim
+### A2-4) Editor: vim
 
 Terminalでの編集用(入れるかどうかは、おまかせです)に入れます
 
@@ -231,7 +231,7 @@ Terminalでの編集用(入れるかどうかは、おまかせです)に入れ�
 $ brew install vim
 ```
 
-### Editor: code, visual-studio-code-insiders
+### A2-5) Editor: code, visual-studio-code-insiders
 
 GUIでの編集用(おまかせ)に入れます
 
@@ -267,13 +267,13 @@ vsc_shell_input_done.png
 !["vsc_shell_input_done.png"](https://raw.github.com/wiki/naototty/gmo-tech-boot-demo02/images/vsc_shell_input_done.png "vsc_shell_input_done.png")
 
 
-### wget
+### A2-6) wget
 
 ```bash
 $ brew install wget
 ```
 
-### bash-completion
+### A2-7) bash-completion
 
 ```bash
 $ brew install bash-completion
@@ -293,14 +293,14 @@ __EOF
 ```
 
 
-##  python環境セットアップ
+## A3) python環境セットアップ
 
 OpenStackのCLIなどのツールはpythonで書かれています。
 
 ConoHaはOpenStackなので、pythonをPCに入れます。
 
 
-### pip, virtualenv, virtualenvwrapper
+### A3-1) pip, virtualenv, virtualenvwrapper
 
 python 2.7は標準で入っていますが、pipが入ってないかもしれませんので、インストールします。
 
@@ -314,11 +314,15 @@ pipを使って、virtualenv, virtualenvwrapper をいれます。
 $ sudo pip install virtualenv virtualenvwrapper
 ```
 
+### A3-2) bashへのvirtualenvwrapperの設定を入れる
+
 virtualenvwrapperの設定をbashにいれます。
 
 ```bash
 $ echo ". /usr/local/bin/virtualenvwrapper.sh" >> ~/.bash_profile
 ```
+
+### A3-3) "openstack" という作業用virtualenvを作る
 
 初回は手動で読み込みます。つづけて、"openstack"という名称でvirtualenvをつくります。
 ```bash
@@ -340,6 +344,8 @@ virtualenvwrapper.user_scripts creating /Users/chroum/.virtualenvs/openstack/bin
 
 (openstack) $
 ```
+
+### A3-4) 2回目以降、virtualenv "openstack" への変更方法
 
 環境を作った後に、以前作った"(openstack)"というVirtualenvに切り替えるには、下記のように実行します
 
