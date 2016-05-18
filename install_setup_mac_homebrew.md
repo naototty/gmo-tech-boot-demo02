@@ -35,18 +35,25 @@ Xcode自体が入っていない場合には、ここで開いたDialogの「Xco
 入っていない場合には、Mac App StoreからXcodeを検索して、Xcodeをインストールします。
 
 
+xcodeが入っている場合には下記のようなメッセージになるようです。
+
 ```bash:CLI
 $ xcode-select --install
 xcode-select: error: command line tools are already installed, use "Software Update" to install updates
 ```
 
 
-以下のURLからMac App Storeに移動できます
+Xcodeの入手では、以下のURLからMac App Storeに移動できます
 https://developer.apple.com/xcode/download/jp/
 
-<画像: Mac App Store>
 
-インストール後、terminalで
+!["xcode app store"](https://raw.github.com/wiki/naototty/gmo-tech-boot-demo02/images/xcode_app_store.png "xcode app store")
+
+
+
+### HomeBrewのインストール
+
+xcodeインストール後、terminalを開いて、HomeBrewをインストールします
 
 
 公式 HomeBrew インストールコマンド
@@ -121,13 +128,16 @@ Run \`brew missing\` for more details.
 
 "Warning:"で表示されているところは、 なにかあったら、振り返って治す必要があるかもしれないところです。なにかでインストール失敗などした時に、"brew docker" コマンドで確認します。
 
+
 ## install HandsOn Tools
 
 ハンズオンで使用するツールをインストールしていきます。
 
+
 ### Castroom
 
 brewのpluginのリポジトリのようなものです。
+
 手動でインストールするようなアプリケーションを、コマンドラインでインストールすることができます。
 
 公式サイトは以下です: HomeBrew Cast
@@ -215,7 +225,7 @@ Successfully installed "Oracle VM VirtualBox Extension Pack".
 
 ### Editor: vim
 
-Terminalでの編集用(おまかせです)に入れます
+Terminalでの編集用(入れるかどうかは、おまかせです)に入れます
 
 ```bash
 $ brew install vim
@@ -231,22 +241,30 @@ $ brew install Caskroom/versions/visual-studio-code-insiders
 
 CLIでインストール後、"Applications"に入っているので、選択して起動します
 
-<画像: Application folderで選択>
+
+!["visual_studio_code_insiders.png"](https://raw.github.com/wiki/naototty/gmo-tech-boot-demo02/images/visual_studio_code_insiders.png "visual_studio_code_insiders.png")
+
 
 起動後、MacのTerminalから"code"コマンドで呼び出せるように設定を入れます。
 メニュー"表示(V)" >> コマンドパレット(C)... 
 を選択
 
-<画像:メニュー選択: 表示>
+!["vsc_menu_command_pallet.png"](https://raw.github.com/wiki/naototty/gmo-tech-boot-demo02/images/vsc_menu_command_pallet.png "vsc_menu_command_pallet.png")
+
+
 
 「コマンド窓」にshellと入れると、補完されて２つのコマンドが表示されます。
 
 「シェルコマンド:PATH内に'code'コマンドをインストールします」 \
 "Shell Command: Install 'code' command in PATH"
 
-<画像:メニュー選択: >
+vsc_shell_input.png
+!["vsc_shell_input.png"](https://raw.github.com/wiki/naototty/gmo-tech-boot-demo02/images/vsc_shell_input.png "vsc_shell_input.png")
 
 これを選択してインストール後、"Visual Studio code insiders"は一旦終了しておきます
+
+vsc_shell_input_done.png
+!["vsc_shell_input_done.png"](https://raw.github.com/wiki/naototty/gmo-tech-boot-demo02/images/vsc_shell_input_done.png "vsc_shell_input_done.png")
 
 
 ### wget
@@ -255,7 +273,7 @@ CLIでインストール後、"Applications"に入っているので、選択し
 $ brew install wget
 ```
 
-### bash-completion, bash-git-prompt
+### bash-completion
 
 ```bash
 $ brew install bash-completion
@@ -265,23 +283,21 @@ $ brew install bash-completion
 (以下をコピペして実行してください)
 
 ```bash
-cat >> ~/.bashrc << __EOF
+cat >> ~/.bash_profile << __EOF
   if [ -f \$(brew --prefix)/etc/bash_completion ]; then
     . \$(brew --prefix)/etc/bash_completion
   fi
 
 __EOF
 
-cat >> ~/.bashrc << __EOFB
-  if [ -f "\$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-    GIT_PROMPT_THEME=Default
-    source "\$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
-  fi
-
-__EOFB
-
 ```
 
+
+##  python環境セットアップ
+
+OpenStackのCLIなどのツールはpythonで書かれています。
+
+ConoHaはOpenStackなので、pythonをPCに入れます。
 
 
 ### pip, virtualenv, virtualenvwrapper
@@ -301,7 +317,7 @@ $ sudo pip install virtualenv virtualenvwrapper
 virtualenvwrapperの設定をbashにいれます。
 
 ```bash
-$ echo ". /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+$ echo ". /usr/local/bin/virtualenvwrapper.sh" >> ~/.bash_profile
 ```
 
 初回は手動で読み込みます。つづけて、"openstack"という名称でvirtualenvをつくります。
@@ -313,7 +329,7 @@ $ mkvirtualenv openstack
 実行例、実行されると、プロンプトの先頭に"(openstack)"とvirtualenvの名称が付きます
 
 ```bash
-2nd-ConoHa-MacBook-Pro:~ chroum$ mkvirtualenv openstack
+$ mkvirtualenv openstack
 New python executable in /Users/chroum/.virtualenvs/openstack/bin/python
 Installing setuptools, pip, wheel...done.
 virtualenvwrapper.user_scripts creating /Users/chroum/.virtualenvs/openstack/bin/predeactivate
@@ -322,56 +338,24 @@ virtualenvwrapper.user_scripts creating /Users/chroum/.virtualenvs/openstack/bin
 virtualenvwrapper.user_scripts creating /Users/chroum/.virtualenvs/openstack/bin/postactivate
 virtualenvwrapper.user_scripts creating /Users/chroum/.virtualenvs/openstack/bin/get_env_details
 
-(openstack) 2nd-ConoHa-MacBook-Pro:~ chroum$
+(openstack) $
 ```
 
+環境を作った後に、以前作った"(openstack)"というVirtualenvに切り替えるには、下記のように実行します
+
+```bash
+$ . /usr/local/bin/virtualenvwrapper.sh
+
+$ workon openstack
+
+(openstack) $
+```
 
 以上、ここまでがセットアップになります。
 
 
-## 10) make Hands on "demo01" work dir
-~~~ bash
-  mkdir devel
-  cd devel
-  mkdir demo01
-  cd demo01
-  pwd
-~~~
+## README.md に戻る
 
+README.md にもどってください
 
-## 11) git clone "demo01" hands on environment
-~~~ bash
-  git clone https://github.com/naototty/gmo-boot-demo01.git
-
-  ls 
-
-  cd gmo-boot-demo01
-~~~
-
-## 12) vagrant up "demo01" server (32bit)
-~~~ bash
-
-  vagrant up
-~~~
-
-## 13) view http://192.168.33.11/ on Remote Desktop environment web browser
-  うまく起動まで行けば、つぎのURLでwebが立ち上がり、phpのphpinfo()の実行を確認できる 
- 
-  http://192.168.33.11/
-
-
-## 14) ssh web server
-~~~ bash
-
-  vagrant ssh node1
-  sudo su -
-~~~
-
-or 
-
-~~~ bash
-
-  ssh -l vagrant 192.168.33.11
-  sudo su -
-~~~
 
