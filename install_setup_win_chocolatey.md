@@ -40,7 +40,7 @@ PS C:\> Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 
 (Windows 7)
 ```powershell
-PS C:\> Set-ExecutionPolicy Unrestricted
+PS C:\> Set-ExecutionPolicy RemoteSigned
 
 ```
 
@@ -77,34 +77,54 @@ iwr https://chocolatey.org/install.ps1 | iex
 ```                                                                                                               
   
 ## 4) open power shell
-~~~ bash
+``` powershell
   choco /?
-~~~
+```                                                                                                               
 
 ## 5) test install; google chrome
-~~~ bash
+``` powershell
   choco list chrome
   choco install -y GoogleChrome
-~~~
+```                                                                                                               
 
 ## 6) install VirtualBox
-~~~ bash
+``` powershell
   choco list VirtualBox
-  choco install -y VirtualBox VirtualBox.ExtensionPack vagrant Wget
-~~~
-仮想化のソフトなので、管理者権限が必要
+  choco install -y VirtualBox VirtualBox.ExtensionPack vagrant wget
+```
+
+wget はWindows 8以上などのpowershellが新しい環境では、コマンドレット"wget"と実行バイナリ"wget.exe"で
+結果が異なることになります。
+
 
 ## 7) install git command
-~~~ bash
+インストールで、エクスプローラを開いている場合には、すべて閉じておいてください
+
+``` powershell
   choco list git
-  choco install -y git git.commandline git.install hosts.editor
-~~~
+  choco install -y hosts.editor
+  choco install -y git.install
+```
+
+すごくダウンロードが遅い場合(github.comからの制限)
+処理をキャンセルしてから、Homeディレクトリでファイルを取得して、インストールします
+
+
+``` powershell
+　PS C:\> cd ~
+  PS C:\Users\hoge\> choco uninstall -y git.install
+  PS C:\Users\hoge\> wget.exe https://conoha.macpoi.me/demo02/Git-2.8.2-64-bit.exe
+  PS C:\Users\hoge\> .\Git-2.8.2-64-bit.exe /silent
+```
+
+and close AlL powershell window.
+
 
 ## 8) install putty, ssh
-~~~ bash
+``` powershell
   choco list ssh
   choco install -y putty.install
-~~~
+```
 and close power shell window.
 
 
@@ -112,26 +132,81 @@ and close power shell window.
 execute Windows PowerShell with Administrator roles
 
 open new Administrator powershell : "管理者として実行する"
-~~~ bash
+(pathを通すSetメソッドは、powershell管理者権限が必要)
+
+``` powershell
 Windows PowerShell
 Copyright (C) 2013 Microsoft Corporation. All rights reserved.
 
-PS C:\Windows\system32> $path = [Environment]::GetEnvironmentVariable('PATH', 'Machine')
-PS C:\Windows\system32> $path += ';' + 'C:\git\bin'
-PS C:\Windows\system32> [Environment]::SetEnvironmentVariable('PATH', $path, 'Machine')
-PS C:\Windows\system32>
-~~~
-and close AlL power shell window.
+PS C:\> $path = [Environment]::GetEnvironmentVariable('PATH', 'Machine')
+PS C:\> $path += ';' + 'C:\git\bin'
+PS C:\> [Environment]::SetEnvironmentVariable('PATH', $path, 'Machine')
+PS C:\>
+```
+and close AlL powershell window.
   
 open new power shell
 
 powershellのwindowを開き直すことで、sshのpathが通っている状態の端末となる
 
 
-## 9.a) install python2
+## 10) install python2
+
+OpenStack clientの環境をWindowsに作ります。
+~~~ bash
+  choco search python2
+  choco install -y python2
+~~~
+
+実は、殆どの場合、うまく行きません。
+ここで、もし失敗した場合、python2を手動でインストールします。
+
+https://www.python.org/downloads/windows/
+
+直近(2016/05/19)、2.7.11が最新のようなので、それを選択します
+
+https://www.python.org/downloads/release/python-2711/
+
+wgetがインストール済みなので、wgetで取得します
+
+``` powershell
+　PS C:\> cd ~
+  PS C:\Users\hoge\> choco uninstall -y git.install
+  PS C:\Users\hoge\> wget.exe https://conoha.macpoi.me/demo02/python-2.7.11.amd64.msi
+  PS C:\Users\hoge\> .\python-2.7.11.amd64.msi /passive
+```
+
+インストールできると、"(すべての)プログラム" メニューに "Python 2.7" が追加されます。
+
+powershellで使うには、powershellを一回閉じます。
+
+powershellをもう一度開いて、python が使えない場合、pathを通します。
+(Setメソッドは、powershell管理者権限が必要)
+
+``` powershell
+PS C:\> $path = [Environment]::GetEnvironmentVariable('PATH', 'Machine')
+PS C:\> $path += ';' + 'C:\tools\python2'
+PS C:\> $path += ';' + 'C:\tools\python2\Scripts'
+PS C:\> [Environment]::SetEnvironmentVariable('PATH', $path, 'Machine')
+```
 
 
+## 11) install virtualenv, virtualenvwrapper
 
+windows版のpython2.7.11では、pipが最初に入っていますが、upgradeが必要です。
 
+``` powershell
+PS N:\> easy_install-2.7.exe pip
 
-以上、ここまでがセットアップになります。
+PS N:\> pip --version
+pip 8.1.2 from C:\tools\python2\lib\site-packages (python 2.7)
+```
+
+作業の為のvirtualenvのツールをいれます。
+
+``` powershell
+PS N:\> pip install virtualenv
+PS N:\> pip install virtualenvwrapper
+```
+
+以上、ここまでが環境セットアップになります。
