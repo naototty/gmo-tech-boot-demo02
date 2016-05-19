@@ -18,26 +18,42 @@ localのPCに vagrant などの環境を構築します。
   * win setup : https://github.com/naototty/gmo-tech-boot-demo02/blob/demo02_01/install_setup_win_chocolatey.md
 
 
-## 2) make Hands on "demo01" work dir
+## 2) make Hands on "demo02" work dir
 
-~~~ bash
+``` bash
+  cd ~
   mkdir devel
   cd devel
-  mkdir demo01
-  cd demo01
+  mkdir demo02
+  cd demo02
   pwd
-~~~
+```
 
 
-## 3) git clone "demo01" hands on environment
+## 3) git clone "demo02" hands on environment
 
-~~~ bash
+``` bash
   git clone https://github.com/naototty/gmo-tech-boot-demo02.git
 
   ls 
 
   cd gmo-tech-boot-demo02
-~~~
+ 
+  git checkout -b demo02_01
+```
+
+got cloneして、branchを demo02_01に変更します
+
+git branchの確認
+
+``` bash
+  git branch
+
+* demo02_01
+  master
+```
+
+
 
 ## 4) vagrant up "demo02" server
 
