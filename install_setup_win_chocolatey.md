@@ -97,12 +97,13 @@ wget はWindows 8以上などのpowershellが新しい環境では、コマン�
 結果が異なることになります。
 
 
-## 7) install git command
+## 7) install git command, hosts.editor, Editor
 インストールで、エクスプローラを開いている場合には、すべて閉じておいてください
 
 ``` powershell
   choco list git
   choco install -y hosts.editor
+  choco install -y git.commandline
   choco install -y git.install
 ```
 
@@ -119,10 +120,30 @@ wget はWindows 8以上などのpowershellが新しい環境では、コマン�
 
 and close AlL powershell window.
 
+### 7-A) install Visual Studio Code insiders
+趣味の問題(GUI editor)
 
-## 8) install putty, ssh
 ``` powershell
-  choco list ssh
+  choco install -y visualstudiocode-insiders
+```
+
+Visual Studio Code insidersをインストールする場合、一度起動してupdateをかけると、最新版が利用できます。
+
+入れるEditorはなんでも良いですが、改行コード(LF, CRLF)、文字コード(utf8)などが扱えるものにしてください。
+
+
+### 7-B) install vim-x64
+趣味の問題(CUI/CLI editor)
+
+``` powershell
+  choco install -y vim-x64
+```
+
+
+## 8) install putty, openssh
+``` powershell
+  choco list openssh
+  choco install -y win32-openssh
   choco install -y putty.install
 ```
 and close power shell window.
@@ -171,7 +192,7 @@ wgetがインストール済みなので、wgetで取得します
 
 ``` powershell
 　PS C:\> cd ~
-  PS C:\Users\hoge\> choco uninstall -y git.install
+  PS C:\Users\hoge\> choco uninstall -y python2
   PS C:\Users\hoge\> wget.exe https://conoha.macpoi.me/demo02/python-2.7.11.amd64.msi
   PS C:\Users\hoge\> .\python-2.7.11.amd64.msi /passive
 ```
@@ -196,17 +217,19 @@ PS C:\> [Environment]::SetEnvironmentVariable('PATH', $path, 'Machine')
 windows版のpython2.7.11では、pipが最初に入っていますが、upgradeが必要です。
 
 ``` powershell
-PS N:\> easy_install-2.7.exe pip
+PS N:\> easy_install-2.7.exe --upgrade pip
 
 PS N:\> pip --version
 pip 8.1.2 from C:\tools\python2\lib\site-packages (python 2.7)
 ```
 
 作業の為のvirtualenvのツールをいれます。
+(場合によっては、"--upgrade" オプションを入れる必要があるかも)
 
 ``` powershell
 PS N:\> pip install virtualenv
 PS N:\> pip install virtualenvwrapper
+PS N:\> pip install virtualenvwrapper-win
 ```
 
 以上、ここまでが環境セットアップになります。
