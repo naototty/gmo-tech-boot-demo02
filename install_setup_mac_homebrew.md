@@ -292,6 +292,11 @@ __EOF
 
 ```
 
+### A2-8) Hosts (hosts 変更アプリ)
+
+```bash
+$ brew install Caskroom/cask/hosts
+```
 
 ## A3) python環境セットアップ
 
