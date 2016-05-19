@@ -47,6 +47,13 @@ PS C:\> Set-ExecutionPolicy Unrestricted
   - RemoteSigned : 信頼した署名が入ったものは実行できる
   - Unrestricted : 制限なし
 
+(Windows 8.1)で現在のユーザだけ変更するには下記のようにするようです
+```powershell
+PS C:\> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+```
+
+
 制限のPolicy変更の内容については下記のURLを確認してください。
 
 https://technet.microsoft.com/ja-jp/library/ee176961.aspx
