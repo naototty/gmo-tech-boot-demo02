@@ -39,7 +39,7 @@ localのPCに vagrant などの環境を構築します。
 
   cd gmo-tech-boot-demo02
  
-  git checkout -b demo02_01
+  git checkout demo02_01
 ```
 
 got cloneして、branchを demo02_01に変更します
