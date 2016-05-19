@@ -63,7 +63,8 @@ https://technet.microsoft.com/ja-jp/library/ee176961.aspx
 
 ### chocolatey のインストール
 
-powershellで、下記のコマンドを入力します
+powershellで、下記のコマンドを入力します。
+powershellは管理者権限のものを使ってください
 
 ```powershell
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -83,25 +84,26 @@ iwr https://chocolatey.org/install.ps1 | iex
 ## 5) test install; google chrome
 ~~~ bash
   choco list chrome
-  choco install GoogleChrome
+  choco install -y GoogleChrome
 ~~~
 
 ## 6) install VirtualBox
 ~~~ bash
   choco list VirtualBox
-  choco install VirtualBox VirtualBox.ExtensionPack vagrant Wget
+  choco install -y VirtualBox VirtualBox.ExtensionPack vagrant Wget
 ~~~
+仮想化のソフトなので、管理者権限が必要
 
 ## 7) install git command
 ~~~ bash
   choco list git
-  choco install git git.commandline git.install hosts.editor
+  choco install -y git git.commandline git.install hosts.editor
 ~~~
 
 ## 8) install putty, ssh
 ~~~ bash
   choco list ssh
-  choco install putty.install
+  choco install -y putty.install
 ~~~
 and close power shell window.
 
@@ -133,53 +135,3 @@ powershellのwindowを開き直すことで、sshのpathが通っている状態
 
 
 以上、ここまでがセットアップになります。
-
-
-## 10) make Hands on "demo01" work dir
-~~~ bash
-  mkdir devel
-  cd devel
-  mkdir demo01
-  cd demo01
-  pwd
-~~~
-
-
-## 11) git clone "demo01" hands on environment
-~~~ bash
-  git clone https://github.com/naototty/gmo-boot-demo01.git
-
-  ls 
-
-  cd gmo-boot-demo01
-~~~
-
-## 12) vagrant up "demo01" server (32bit)
-~~~ bash
-
-  vagrant up
-~~~
-
-## 13) view http://192.168.33.11/ on Remote Desktop environment web browser
-  うまく起動まで行けば、つぎのURLでwebが立ち上がり、phpのphpinfo()の実行を確認できる 
- 
-  http://192.168.33.11/
-
-
-## 14) ssh web server
-~~~ bash
-
-  vagrant ssh node1
-  sudo su -
-~~~
-
-or 
-
-~~~ bash
-
-  ssh -l vagrant 192.168.33.11
-  sudo su -
-~~~
-
-
-
