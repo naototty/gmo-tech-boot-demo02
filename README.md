@@ -203,7 +203,7 @@ git branch の確認
     * host name: demo02.dev
     * host name: www.demo02.dev
 
-### 5-B) host設定ごとのwebの表示はどうなるのか?
+### B-5-B) host設定ごとのwebの表示はどうなるのか?
 
   * host name: node1.dev
     * http://node1.dev
@@ -214,7 +214,7 @@ git branch の確認
   * host name: www.demo02.dev
     * http://www.demo02.dev
 
-## 6) ssh web server
+## B-6) ssh web server
 
 ``` bash
 
