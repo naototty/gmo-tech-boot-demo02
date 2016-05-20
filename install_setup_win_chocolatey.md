@@ -232,4 +232,32 @@ PS N:\> pip install virtualenvwrapper
 PS N:\> pip install virtualenvwrapper-win
 ```
 
+Powershellを一度閉じて、開いてください
+
+### 11-1) "openstack" という作業用virtualenvを作る
+
+``` powershell
+PS C:\Windows\system32> cd c:\
+PS C:\> mkvirtualenv.bat openstack
+New python executable in C:\Users\chroum\Envs\openstack\Scripts\python.exe
+Installing setuptools, pip, wheel...done.
+```
+
+
+### 11-2) 2回目以降、virtualenv "openstack" への変更方法
+
+
+``` powershell
+PS C:\> workon openstack
+PS C:\>
+```
+
+
 以上、ここまでが環境セットアップになります。
+
+
+## README.md に戻る
+
+README.md にもどってください
+
+
