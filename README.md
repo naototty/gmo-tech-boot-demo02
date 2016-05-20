@@ -81,6 +81,24 @@ git branchの確認
       - アプリケーションメニューに "Hosts File Editor" が増えている
     * または、手動で書き換え(Editor)
 
+以下の Hosts 設定を入れる
+
+  * IP addr: 192.168.33.11    
+    * host name: node1.dev
+    * host name: www.node1.dev
+    * host name: demo02.dev
+    * host name: www.demo02.dev
+
+### 5-B) host設定ごとのwebの表示はどうなるのか?
+
+  * host name: node1.dev
+    * http://node1.dev
+  * host name: www.node1.dev
+    * http://www.node1.dev
+  * host name: demo02.dev
+    * http://demo02.dev
+  * host name: www.demo02.dev
+    * http://www.demo02.dev
 
 ## 6) ssh web server
 
