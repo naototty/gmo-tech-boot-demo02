@@ -24,8 +24,9 @@ localのPCに vagrant などの環境を構築します。
   cd ~
   mkdir devel
   cd devel
-  mkdir demo02
-  cd demo02
+
+  mkdir demo02_01
+  cd demo02_01
   pwd
 ```
 
