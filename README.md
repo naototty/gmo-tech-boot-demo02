@@ -40,6 +40,125 @@ demo02_02 の git branch をcheckout します
   git checkout demo02_02
 ```
 
+### 2-a) virtualenv環境の構築
+
+
+作業用の端末はCentOS 7.xであること (ConoHa上)
+kimさんのハンズオンで使ったVMでOK
+
+
+rootでインストール作業
+
+python の virtualenv,  virtualenvwrapperを入れる
+
+
+``` bash
+# yum -y groupinstall "Development Tools"
+# yum -y install readline-devel zlib-devel bzip2-devel sqlite-devel openssl-devel
+
+# yum -y install python-virtualenv python-virtualenvwrapper
+```
+
+### 2-b) virtualenv環境の設定 (github使う)
+
+#### github上
+先に作ったgithubアカウントで、bashrcを管理するプロジェクトを作ります。
+
+
+たとえば、"mybashrcenv" とかいう名前の場合
+
+https://github.com/naototty/mybashrcenv
+
+というようになります。
+
+
+#### 作業用CentOS 7.x
+
+作業端末のConoHa VM で git add / git commit / git push します
+
+``` bash
+git clone https://github.com/naototty/mybashrcenv.git
+
+cd mybashrcenv/
+
+cp ~/.bashrc ./mybashrc
+
+git add mybashrc
+git commit -a -m'add my bashrc'
+git push
+```
+
+#### NotePC上
+
+``` bash
+git clone https://github.com/naototty/mybashrcenv.git
+
+```
+
+できた "mybashrcenv" フォルダを Visual Studio Code で
+ Open >> "mybashrcenv" を選択
+
+します。
+
+mybashrc ファイルを左で選択します。
+>> エディタで表示されます。
+
+
+以下の内容をVisual Studio Codeで追記します。
+
+``` shell
+### Virtualenvwrapper for GTB2017
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/devel/gtb2017/.virtualenvs
+    source /usr/bin/virtualenvwrapper.sh
+fi
+
+```
+
+Visual Studio Codeでコミットします。
+git pushします
+
+
+### 2-c) virtualenv環境の設定 (github使わない)
+
+shellで以下を実行、
+
+``` shell
+cat >> .bashrc << __EOF_
+
+### Virtualenvwrapper for GTB2017
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/devel/gtb2017/.virtualenvs
+    source /usr/bin/virtualenvwrapper.sh
+fi
+
+__EOF_
+
+```
+
+"openstack" という作業用virtualenvを作る
+
+初回は手動で読み込みます。つづけて、"openstack"という名称でvirtualenvをつくります。
+```bash
+$ . /usr/bin/virtualenvwrapper.sh
+$ mkvirtualenv openstack
+```
+
+実行例、実行されると、プロンプトの先頭に"(openstack)"とvirtualenvの名称が付きます
+
+```bash
+$ mkvirtualenv openstack
+New python executable in /root/devel/gtb2017/.virtualenvs/openstack/bin/python
+Installing setuptools, pip, wheel...done.
+virtualenvwrapper.user_scripts creating /root/devel/gtb2017/.virtualenvs/openstack/bin/predeactivate
+virtualenvwrapper.user_scripts creating /root/devel/gtb2017/.virtualenvs/openstack/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /root/devel/gtb2017/.virtualenvs/openstack/bin/preactivate
+virtualenvwrapper.user_scripts creating /root/devel/gtb2017/.virtualenvs/openstack/bin/postactivate
+virtualenvwrapper.user_scripts creating /root/devel/gtb2017/.virtualenvs/openstack/bin/get_env_details
+
+(openstack) $
+```
+
 ## 3) openstack client(OSC) installation on python virtualenv
 
 branch "demo02_02" をcheckoutすると、ファイルが変化します。
