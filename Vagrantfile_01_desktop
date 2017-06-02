@@ -6,8 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 
 ### shell provisioning script ### =========================
-  ## demo02_03
-  $script_node1 = <<SCRIPT
+$script_node1 = <<SCRIPT
 echo node1
 
 sed -i -e '/HOSTNAME/d' /etc/sysconfig/network
@@ -20,46 +19,22 @@ date > /root/vagrant_provisioned_at
 mkdir -p /var/www/test/node01.dev/public_html
 chown -R vagrant: /var/www/test/node01.dev/public_html
 
-mkdir -p /var/www/test/demo02.dev/public_html
-chown -R vagrant: /var/www/test/demo02.dev/public_html
-
 yum -y install yum-fastestmirror
 
 yum -y install httpd
 
 touch /etc/httpd/conf.d/00_vhost.conf
 echo "NameVirtualHost *:80" >> /etc/httpd/conf.d/00_vhost.conf
+touch /etc/httpd/conf.d/vhost-node1.dev.conf
+echo "<VirtualHost *:80>" >> /etc/httpd/conf.d/vhost-node1.dev.conf
+echo "  DocumentRoot /var/www/test/node01.dev/public_html" >> /etc/httpd/conf.d/vhost-node1.dev.conf
+echo "</VirtualHost>" >> /etc/httpd/conf.d/vhost-node1.dev.conf
 
-if [ -f /vagrant_data/lb_manager.conf ]; then
-  cp -avf /vagrant_data/lb_manager.conf /etc/httpd/conf.d/lb_manager.conf
-fi
-
-if [ -f /vagrant_data/vhost-port-10081-node1.dev.conf ]; then
-  cp -avf /vagrant_data/vhost-port-10081-node1.dev.conf /etc/httpd/conf.d/vhost-port-10081-node1.dev.conf
-fi
-
-if [ -f /vagrant_data/vhost-port-10082-demo02.dev.conf ]; then
-  cp -avf /vagrant_data/vhost-port-10082-demo02.dev.conf /etc/httpd/conf.d/vhost-port-10082-demo02.dev.conf
-fi
-
-
-if [ -f /vagrant_data/vhost-demo02.dev.conf ]; then
-  cp -avf /vagrant_data/vhost-demo02.dev.conf /etc/httpd/conf.d/vhost-demo02.dev.conf
-fi
-
-if [ -f /vagrant_data/vhost-node1.dev.conf ]; then
-  cp -avf /vagrant_data/vhost-node1.dev.conf /etc/httpd/conf.d/vhost-node1.dev.conf
-else
-  touch /etc/httpd/conf.d/vhost-node1.dev.conf
-  echo "<VirtualHost *:80>" >> /etc/httpd/conf.d/vhost-node1.dev.conf
-  echo "  DocumentRoot /var/www/test/node01.dev/public_html" >> /etc/httpd/conf.d/vhost-node1.dev.conf
-  echo "</VirtualHost>" >> /etc/httpd/conf.d/vhost-node1.dev.conf
-fi
-
-yum -y install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 sed -i.bak 's/enabled=0/enabled=1/' /etc/yum.repos.d/epel-testing.repo
 
 yum -y install php \
+epel-release \
+vim-enhanced \
 php-cli \
 php-common \
 php-devel \
@@ -72,10 +47,13 @@ php-xml \
 php-mcrypt
 cp -avf /etc/php.ini /etc/php.ini-ORIG
 echo "date.timezone = Asia/Tokyo" >> /etc/php.ini
-cat /var/www/test/node01.dev/info.php >  /var/www/test/node01.dev/public_html/index.php
-cat /var/www/test/demo02.dev/info.php >  /var/www/test/demo02.dev/public_html/index.php
+echo "<?php" > /var/www/test/node01.dev/public_html/index.php
+echo "  echo \"this is node1.dev host\n\";" >> /var/www/test/node01.dev/public_html/index.php
+echo "  phpinfo();" >> /var/www/test/node01.dev/public_html/index.php
+
 chkconfig httpd on
 service httpd start
+
 service httpd reload
 
 SCRIPT
@@ -124,11 +102,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   #
-  ##
   config.vm.synced_folder "./share", "/vagrant_data"
-  ##
+  ## config.vm.synced_folder "./source/node01.dev", "/var/www/test/node01.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :extra => 'dmode=777,fmode=666'
   config.vm.synced_folder "./source/node01.dev", "/var/www/test/node01.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :mount_options => ['dmode=777', 'fmode=666']
-  config.vm.synced_folder "./source/demo02.dev", "/var/www/test/demo02.dev", :create => true, :owner => 'vagrant', :group => 'vagrant', :mount_options => ['dmode=777', 'fmode=666']
   ##
 
   # sudo yum install docker-io
@@ -151,7 +127,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
     # Use VBoxManage to customize the VM. For example to change memory:
     ## vb.customize ["modifyvm", :id, "--memory", "1024"]
-    vb.customize ["modifyvm", :id, "--memory", "512"]
+    ## vb.customize ["modifyvm", :id, "--memory", "512"]
   end
 
   config.vm.define :node1 do |cur_node|
@@ -164,6 +140,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     cur_node.vm.network :forwarded_port, guest: 22, host: 2201, id: "ssh"
     cur_node.vm.network :forwarded_port, guest: 80, host: 8001, id: "http"
     cur_node.vm.network :private_network, ip: "192.168.33.11"
+
+    cur_node.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+      vb.name = "node1"
+    end
 
     #cur_node.vm.provision "shell" do |shell|
     #  #shell.inline: "echo node1"
