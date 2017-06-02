@@ -121,6 +121,12 @@ git pushします
 
 ### 2-c) virtualenv環境の設定 (github使わない)
 
+virtualenvのdirを作成
+
+``` shell
+mkdir -p $HOME/devel/gtb2017
+```
+
 shellで以下を実行、
 
 ``` shell
