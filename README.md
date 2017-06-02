@@ -1,119 +1,45 @@
 # gmo-tech-boot-demo02
-gmo tech boot camp demo02_03 (PC Virtulization and Cloud)
+gmo tech boot camp docker01 (Docker)
 
-This repo is gmo boot camp demo01.
+This repo is gmo boot camp docker01.
 https://github.com/naototty/gmo-tech-boot-demo02
 
-まずは、Local PCでの仮想化
-webのLB, Reverse Proxy(Layer 7)
+まずは、ConoHa上で作業
+なんやねん、Dockerって
 
-## 1) destroy demo02_02 vm, IF you did not destroy vm
-
-``` bash
-  vagrant destroy
-```
+## 1) quick start docker env. on ConoHa cloud
+https://docs.docker.com/engine/docker-overview/
 
 
-## 2) make Hands on "demo02_03" work dir
+https://docs.docker.com/engine/installation/linux/centos/#install-docker
 
 ``` bash
-  cd ..
-
-  mkdir demo02_03
-  cd demo02_03
-  pwd
+$ sudo yum remove docker \
+                  docker-common \
+                  container-selinux \
+                  docker-selinux \
+                  docker-engine
 ```
-
-
-## 3) git clone "demo02_03" hands on environment
-
-gitで branch demo02_03 を取ってきます
 
 ``` bash
-  git clone https://github.com/naototty/gmo-tech-boot-demo02.git
-
-  ls 
-
-  cd gmo-tech-boot-demo02
- 
-  git checkout demo02_03
+  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+  
 ```
-
-git cloneして、branchを demo02_03 に変更します
-
-git branchの確認
 
 ``` bash
-  git branch
-
-* demo02_03 <<< これが出る
-  master
+$ sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo  
 ```
-
-
-
-## 4) vagrant up "demo02" server
 
 ``` bash
+$ sudo yum-config-manager --enable docker-ce-edge
 
-  vagrant up
 ```
-
-
-## 5) view http://192.168.33.11/ on web browser
-
-  うまく起動まで行けば、つぎのURLでwebが立ち上がり、phpのphpinfo()の実行を確認できる 
- 
-  http://192.168.33.11/
-
-
-### 5-A) hostsの設定
-
-今はテストなので、hosts に ホスト名を設定します。
-
-  * Mac OS Xの場合
-    * 初期のインストールのところで入れた Hostsというツールで設定
-      - コントロールパネルに "Hosts" という設定ツールが増えている
-    * または、手動で書き換え(Editor)
-
-  * Windowsの場合
-    * 初期のインストールのところで入れた Hosts File editorというツールで設定
-      - アプリケーションメニューに "Hosts File Editor" が増えている
-    * または、手動で書き換え(Editor)
-
-以下の Hosts 設定を入れる
-
-  * IP addr: 192.168.33.11    
-    * host name: node1.dev
-    * host name: www.node1.dev
-    * host name: demo02.dev
-    * host name: www.demo02.dev
-
-### 5-B) host設定ごとのwebの表示はどうなるのか?
-
-  * host name: node1.dev
-    * http://node1.dev
-  * host name: www.node1.dev
-    * http://www.node1.dev
-  * host name: demo02.dev
-    * http://demo02.dev
-  * host name: www.demo02.dev
-    * http://www.demo02.dev
-
-## 6) ssh web server
 
 ``` bash
-
-  vagrant ssh node1
-  sudo su -
+$ sudo yum install docker-ce
 ```
 
-or 
-
-``` bash
-
-  ssh -l vagrant 192.168.33.11
-  sudo su -
-```
-
+## 2) make Hands on "docker01" work dir
 
