@@ -1,0 +1,91 @@
+# Windows setup 2017-06-12
+
+## 1) Visual Studio Code (stable/blue)
+https://code.visualstudio.com/docs/?dv=win
+
+
+## 2) Google Japanese Input
+https://tools.google.com/dlpage/japaneseinput/eula.html?platform=win
+
+
+## 3) PowerShell 3.0
+
+### .NetFramework 4.0
+https://www.microsoft.com/ja-jp/download/details.aspx?id=17851
+>> default installed
+
+
+＞.NetFramework 4.5
+https://www.microsoft.com/ja-jp/download/details.aspx?id=30653
+>> default installed
+
+>> installed .NetFramework 4.6.1
+
+### Windows Management Framework 3.0
+https://www.microsoft.com/en-us/download/details.aspx?id=34595
+
+
+Windows Management Framework 4.0
+https://www.microsoft.com/ja-JP/download/details.aspx?id=40855
+
+>> Windows6.1-KB2819745-x64-MultiPkg
+
+>> reboot
+>>
+
+
+## chocolaty installed
+
+> Get-ExecutionPolicy
+> Set-ExecutionPolicy AllSigned
+> iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+
+PS N:\> choco install Cygwin cyg-get
+
+choco install git.install
+
+
+## manual install 
+https://cygwin.com/setup-x86_64.exe
+
+setup to C:\tools\cygwin\cygwinsetup.exe
+
+
+## on PowerShell
+
+PS N:\> cyg-get lynx
+
+PS N:\> cyg-get wget
+
+
+## on cygwin
+>> apt-cyg setup
+
+http://qiita.com/hkuno/items/df06db4bb406a17d2494
+apt-cyg をインストールする(2016年版)
+
+usr0101039@YIND0535 ~/devel/apt-cyg
+$ history
+
+   13  mkdir devel
+   14  cd devel/
+   15  ls -l
+   16  git clone https://github.com/transcode-open/apt-cyg.git
+   17  cd apt-cyg/
+   18  ls -l
+   19  git config core.autocrlf input
+   20  mv apt-cyg apt-cyg-ORIG
+   21  git reset --hard
+   22  ls -l
+   23  install apt-cyg /usr/local/bin
+   26  apt-cyg -m ftp://ftp.iij.ad.jp/pub/cygwin/ update
+   27  apt-cyg
+
+$ apt-cyg install vim
+$ apt-cyg install gvim
+
+
+
+
+
