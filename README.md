@@ -285,7 +285,8 @@ mongodb:
 __EOF_
 ```
 
-## 5) make Hands on "docker01"; Rancher / Kubernetes
+
+## 6) make Hands on "docker01"; Rancher / Kubernetes
 
 Rancher/Kubernetes入門ハンズオン
 http://qiita.com/zembutsu/items/007617cbb00a0d554c8c
@@ -296,7 +297,8 @@ http://qiita.com/zembutsu/items/007617cbb00a0d554c8c
 Rancherの設定までできたらOK
 
 
-## 6) スーパー応用編
+
+## 7) スーパー応用編
 
 ここまで出来たら、一人前じゃね
 足りない情報は、自分でリサーチして補完して、次の構築が出来たら、ConoHaエンジニアリング・チームにスカウトしちゃいます
@@ -309,3 +311,5 @@ https://docs.openstack.org/developer/kolla-kubernetes/deployment-guide.html
 
 helmでkubernetes上にOpenStackインストール
 https://github.com/openstack/openstack-helm
+
+
