@@ -85,7 +85,607 @@ $ history
 $ apt-cyg install vim
 $ apt-cyg install gvim
 
+$ vim ~/.bashrc
+
+alias apt-cyg
+>> 変更
+# alias apt-cyg
+>> コメントアウトする
 
 
+## NetDrive manual install
+
+http://www.netdrive.net/download/
+
+
+## OneNote
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install -y onenote
+
+失敗したので、手動インストール
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install -y onenote
+Chocolatey v0.10.7
+Installing the following packages:
+onenote
+By installing you accept licenses for the packages.
+
+onenote v16.0.8067.2115 [Approved]
+onenote package files install completed. Performing other installation steps.
+Downloading onenote 64 bit
+  from 'https://www.onenote.com/download/win32/x64/en-US'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\onenote\16.0.8067.2115\setupone
+notefreeretail.x64.en-us_.exe (6.73 MB).
+Download of setuponenotefreeretail.x64.en-us_.exe (6.73 MB) completed.
+Error - hashes do not match. Actual value was '57DBCDF04C547AA18D15232E5C60B6CFC2774047E8CBD1D64F5C78936F852442'.
+ERROR: Checksum for 'C:\Users\usr0101039\AppData\Local\Temp\chocolatey\onenote\16.0.8067.2115\setuponenotefreeretail.x64
+.en-us_.exe' did not meet 'B7F5F676507ECDAFA4E54E6F790A18E074EB6A83A15011D6BF353326D89C24B3' for checksum type 'sha256'.
+ Consider passing the actual checksums through with --checksum --checksum64 once you validate the checksums are appropri
+ate. A less secure option is to pass --ignore-checksums if necessary.
+The install of onenote was NOT successful.
+Error while running 'C:\ProgramData\chocolatey\lib\onenote\tools\chocolateyinstall.ps1'.
+ See log for details.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - onenote (exited -1) - Error while running 'C:\ProgramData\chocolatey\lib\onenote\tools\chocolateyinstall.ps1'.
+ See log for details.
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+
+
+https://www.onenote.com/
+>> 手動ダウンロード
+
+
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install -y ResophNotes
+Chocolatey v0.10.7
+Installing the following packages:
+ResophNotes
+By installing you accept licenses for the packages.
+Progress: Downloading ResophNotes 1.5.7... 100%
+
+ResophNotes v1.5.7 - Possibly broken
+resophnotes package files install completed. Performing other installation steps.
+Downloading ResophNotes
+  from 'http://www.resoph.com/ResophNotes/Welcome_files/ResophNotes157.zip'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\ResophNotes\1.5.7\ResophNotes15
+7.zip (6.64 MB).
+Download of ResophNotes157.zip (6.64 MB) completed.
+WARNING: Missing package checksums are not allowed (by default for HTTP/FTP,
+ HTTPS when feature 'allowEmptyChecksumsSecure' is disabled) for
+ safety and security reasons. Although we strongly advise against it,
+ if you need this functionality, please set the feature
+ 'allowEmptyChecksums' ('choco feature enable -n
+ allowEmptyChecksums')
+ or pass in the option '--allow-empty-checksums'. You can also pass
+ checksums at runtime (recommended). See choco install -? for details.
+The integrity of the file 'ResophNotes157.zip' from 'http://www.resoph.com/ResophNotes/Welcome_files/ResophNotes157.zip'
+ has not been verified by a checksum in the package scripts.
+Do you wish to allow the install to continue (not recommended)?
+[Y] Yes [N] No (default is "N")
+  Confirmation (`-y`) is set.
+  Respond within 30 seconds or the default selection will be chosen.
+WARNING: Write-ChocolateyFailure is deprecated and will be removed in v2. If you are the package maintainer, please use
+'throw $_.Exception' instead.
+ERROR: Empty checksums are no longer allowed by default for non-secure sources. Please ask the maintainer to add checksu
+ms to this package. In the meantime if you need this package to work correctly, please enable the feature allowEmptyChec
+ksums, provide the runtime switch '--allow-empty-checksums', or pass in checksums at runtime (recommended - see 'choco i
+nstall -?' / 'choco upgrade -?' for details). It is strongly advised against allowing empty checksums for non-internal H
+TTP/FTP sources.
+The install of resophnotes was NOT successful.
+Error while running 'C:\ProgramData\chocolatey\lib\ResophNotes\tools\chocolateyInstall.ps1'.
+ See log for details.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - resophnotes (exited -1) - Error while running 'C:\ProgramData\chocolatey\lib\ResophNotes\tools\chocolateyInstall.ps1'
+.
+ See log for details.
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+
+### 手動インストール
+
+
+
+
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install laverna
+Chocolatey v0.10.7
+Installing the following packages:
+laverna
+By installing you accept licenses for the packages.
+Progress: Downloading laverna 0.7.3... 100%
+
+laverna v0.7.3 [Approved]
+laverna package files install completed. Performing other installation steps.
+The package laverna wants to run 'chocolateyinstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading laverna 64 bit
+  from 'https://github.com/Laverna/laverna/releases/download/0.7.3/laverna-0.7.3-win32-x64.zip'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\laverna\0.7.3\laverna-0.7.3-win
+32-x64.zip (52.82 MB).
+Download of laverna-0.7.3-win32-x64.zip (52.82 MB) completed.
+Hashes match.
+Extracting C:\Users\usr0101039\AppData\Local\Temp\chocolatey\laverna\0.7.3\laverna-0.7.3-win32-x64.zip to C:\ProgramData
+\chocolatey\lib\laverna\tools...
+C:\ProgramData\chocolatey\lib\laverna\tools
+ ShimGen has successfully created a shim for laverna.exe
+ The install of laverna was successful.
+  Software installed to 'C:\ProgramData\chocolatey\lib\laverna\tools'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+
+
+
+
+
+
+[root@el6sg08 setup]# ./dev-pyexpect-change-rootpw-py26.py -t 172.20.173.171 | grep root
+root_pass|zGldpoJp53&ne
+public_key|ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA0i7EpEc09G4Q+bbUw6Zrj3nP6PSPiKMaiMxCpywVRhpDpD3cT1CqJTu0PlE/h+AJmT68IKrQUv2h92Wd+npyoHgzGkPC2rropBPbqRThvLXou2MnsI+kmAk0zxSNZkIvGitXULLRdIA1SWfdw4mvXFuicTHqgmXuRkaDeZdEVr0Zh0z1zA+irwNY4vW990Tc1ZaTHi8flb7ou+GzuXz3SHsn674y9NULqsguEnZKBOwqSToBeQU8Ur58csKkXKKumbL2KpupuZCDNdn7uzyvsYD67ldF91gIFMNgjZHfKpMXV0FRM2zc21l1U0cByHtr9dayOlVI9Ym6ozv00olI9w== root@master01.apyz.internal-gmo
+
+
+## LimeChat 手動いんすとーる
+
+
+
+
+i
+
+
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install java.jdk7
+Chocolatey v0.10.7
+Installing the following packages:
+java.jdk7
+By installing you accept licenses for the packages.
+java.jdk7 not installed. The package was not found with the source(s) listed.
+ If you specified a particular version and are receiving this message, it is possible that the package name exists but t
+he version does not.
+ Version: ""
+ Source(s): "https://chocolatey.org/api/v2/"
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - java.jdk7 - java.jdk7 not installed. The package was not found with the source(s) listed.
+ If you specified a particular version and are receiving this message, it is possible that the package name exists but t
+he version does not.
+ Version: ""
+ Source(s): "https://chocolatey.org/api/v2/"
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install jdk7
+Chocolatey v0.10.7
+Installing the following packages:
+jdk7
+By installing you accept licenses for the packages.
+Progress: Downloading jdk7 7.0.79.3... 100%
+
+jdk7 v7.0.79.3 [Approved] - Possibly broken
+jdk7 package files install completed. Performing other installation steps.
+The package jdk7 wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading JDK from http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-windows-x64.exe
+ERROR: Exception calling "DownloadFile" with "2" argument(s): "The remote server returned an error: (404) Not Found."
+The install of jdk7 was NOT successful.
+Error while running 'C:\ProgramData\chocolatey\lib\jdk7\tools\chocolateyInstall.ps1'.
+ See log for details.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - jdk7 (exited -1) - Error while running 'C:\ProgramData\chocolatey\lib\jdk7\tools\chocolateyInstall.ps1'.
+ See log for details.
+
+
+### 結局 jdk8 を入れることに
+
+ PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install jdk8
+Chocolatey v0.10.7
+Installing the following packages:
+jdk8
+By installing you accept licenses for the packages.
+Progress: Downloading jdk8 8.0.131... 100%
+
+jdk8 v8.0.131 [Approved]
+jdk8 package files install completed. Performing other installation steps.
+The package jdk8 wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading JDK from http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-wi
+ndows-x64.exe
+Installing jdk8...
+jdk8 has been installed.
+PATH environment variable does not have C:\Program Files\Java\jdk1.8.0_131\bin in it. Adding...
+  jdk8 may be able to be automatically uninstalled.
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of jdk8 was successful.
+  Software installed to 'C:\Program Files\Java\jdk1.8.0_131\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+
+
+### jre8も入れないと設定できないらしい
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install jre8
+Chocolatey v0.10.7
+Installing the following packages:
+jre8
+By installing you accept licenses for the packages.
+Progress: Downloading jre8 8.0.131... 100%
+
+jre8 v8.0.131 [Approved]
+jre8 package files install completed. Performing other installation steps.
+The package jre8 wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Searching if new version exists...
+Downloading jre8
+  from 'https://javadl.oracle.com/webapps/download/AutoDL?BundleId=220313_d54c1d3a095b4ff2b6607d096fa80163'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\jre8\8.0.131\jre8Install.exe (5
+4.83 MB).
+Download of jre8Install.exe (54.83 MB) completed.
+Hashes match.
+Installing jre8...
+jre8 has been installed.
+Downloading jre8 64 bit
+  from 'https://javadl.oracle.com/webapps/download/AutoDL?BundleId=220315_d54c1d3a095b4ff2b6607d096fa80163'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\jre8\8.0.131\jre8Install.exe (6
+2.62 MB).
+Download of jre8Install.exe (62.62 MB) completed.
+Installing jre8...
+jre8 has been installed.
+Searching if the previous version exists...
+  jre8 may be able to be automatically uninstalled.
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of jre8 was successful.
+  Software installed to 'C:\Program Files\Java\jre1.8.0_131\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+
+
+### slack install
+
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02> choco install slack
+Chocolatey v0.10.7
+Installing the following packages:
+slack
+By installing you accept licenses for the packages.
+Progress: Downloading slack 1.1.0... 100%
+
+slack v1.1.0 [Approved]
+slack package files install completed. Performing other installation steps.
+The package slack wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading slack 64 bit
+  from 'https://slack.com/ssb/download-win64'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\slack\1.1.0\SlackSetup.exe (73.
+23 MB).
+Download of SlackSetup.exe (73.23 MB) completed.
+Installing slack...
+slack has been installed.
+  slack can be automatically uninstalled.
+ The install of slack was successful.
+  Software installed to 'C:\Users\usr0101039\AppData\Local\slack'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+PS C:\Users\usr0101039\Documents\MEMO\gmo-tech-boot-demo02>
+
+
+## SimpleNote
+
+PS N:\> choco search simplenote
+Chocolatey v0.10.7
+ResophNotes 1.5.7 - Possibly broken
+simplenote 1.0.8 [Approved] Downloads cached for licensed users
+2 packages found.
+PS N:\> choco install simplenote
+Chocolatey v0.10.7
+Installing the following packages:
+simplenote
+By installing you accept licenses for the packages.
+Progress: Downloading simplenote 1.0.8... 100%
+
+simplenote v1.0.8 [Approved]
+simplenote package files install completed. Performing other installation steps.
+The package simplenote wants to run 'chocolateyinstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading simplenote
+  from 'https://github.com/Automattic/simplenote-electron/releases/download/v1.0.8/Simplenote-1.0.8-Setup.exe'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\simplenote\1.0.8\Simplenote-1.0
+.8-Setup.exe (51.41 MB).
+Download of Simplenote-1.0.8-Setup.exe (51.41 MB) completed.
+Hashes match.
+Installing simplenote...
+simplenote has been installed.
+  simplenote may be able to be automatically uninstalled.
+ The install of simplenote was successful.
+  Software installed as 'exe', install location is likely default.
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS N:\>
+
+
+### SimpleNote alternative WebClient
+
+PS N:\> choco search simplenote
+Chocolatey v0.10.7
+ResophNotes 1.5.7 - Possibly broken
+simplenote 1.0.8 [Approved] Downloads cached for licensed users
+2 packages found.
+PS N:\> choco install ResophNotes
+Chocolatey v0.10.7
+Installing the following packages:
+ResophNotes
+By installing you accept licenses for the packages.
+Progress: Downloading ResophNotes 1.5.7... 100%
+
+ResophNotes v1.5.7 - Possibly broken
+resophnotes package files install completed. Performing other installation steps.
+The package ResophNotes wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): yes
+
+WARNING: Missing package checksums are not allowed (by default for HTTP/FTP,
+ HTTPS when feature 'allowEmptyChecksumsSecure' is disabled) for
+ safety and security reasons. Although we strongly advise against it,
+ if you need this functionality, please set the feature
+ 'allowEmptyChecksums' ('choco feature enable -n
+ allowEmptyChecksums')
+ or pass in the option '--allow-empty-checksums'. You can also pass
+ checksums at runtime (recommended). See choco install -? for details.
+The integrity of the file 'ResophNotes157.zip' from 'http://www.resoph.com/ResophNotes/Welcome_files/ResophNotes157.zip'
+ has not been verified by a checksum in the package scripts.
+Do you wish to allow the install to continue (not recommended)?
+[Y] Yes [N] No (default is "N")
+y
+Extracting C:\Users\usr0101039\AppData\Local\Temp\chocolatey\ResophNotes\1.5.7\ResophNotes157.zip to C:\ProgramData\choc
+olatey\lib\ResophNotes\tools...
+C:\ProgramData\chocolatey\lib\ResophNotes\tools
+Installing ResophNotes...
+ResophNotes has been installed.
+WARNING: Write-ChocolateySuccess is deprecated and will be removed in v2. If you are the maintainer, please remove it fr
+om your package file.
+  resophnotes may be able to be automatically uninstalled.
+ The install of resophnotes was successful.
+  Software installed to 'C:\Program Files (x86)\ResophNotes\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS N:\>
+
+
+## neovim for Windows env.
+
+https://github.com/neovim/neovim/wiki/Installing-Neovim
+
+
+PS N:\> choco search neovim
+Chocolatey v0.10.7
+neovim 0.2.0.20170610 [Approved] Downloads cached for licensed users
+1 packages found.
+PS N:\> choco install neovim
+Chocolatey v0.10.7
+Installing the following packages:
+neovim
+By installing you accept licenses for the packages.
+Progress: Downloading vcredist2015 14.0.24215.20170201... 100%
+Progress: Downloading vcredist140 14.10.25017.0... 100%
+Progress: Downloading KB3033929 1.0.3... 100%
+Progress: Downloading chocolatey-windowsupdate.extension 1.0.2... 100%
+Progress: Downloading KB3035131 1.0.1... 100%
+Progress: Downloading KB2919355 1.0.20160915... 100%
+Progress: Downloading KB2919442 1.0.20160915... 100%
+Progress: Downloading KB2999226 1.0.20170509... 100%
+Progress: Downloading neovim 0.2.0.20170610... 100%
+
+chocolatey-windowsupdate.extension v1.0.2 [Approved]
+chocolatey-windowsupdate.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-windowsupdate extensions.
+ The install of chocolatey-windowsupdate.extension was successful.
+  Software installed to 'C:\ProgramData\chocolatey\extensions\chocolatey-windowsupdate'
+
+KB3035131 v1.0.1 [Approved]
+kb3035131 package files install completed. Performing other installation steps.
+The package KB3035131 wants to run 'ChocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading KB3035131 64 bit
+  from 'https://download.microsoft.com/download/3/D/F/3DF6B0B1-D849-4272-AA98-3AA8BB456CCC/Windows6.1-KB3035131-x64.msu'
+
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\KB3035131\1.0.1\Windows6.1-KB30
+35131-x64.msu (11.33 MB).
+Download of Windows6.1-KB3035131-x64.msu (11.33 MB) completed.
+Hashes match.
+Installing KB3035131...
+ The install of kb3035131 was successful.
+  Software installed as 'msu', install location is likely default.
+
+KB3033929 v1.0.3 [Approved]
+kb3033929 package files install completed. Performing other installation steps.
+The package KB3033929 wants to run 'ChocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): yes
+
+Downloading KB3033929 64 bit
+  from 'https://download.microsoft.com/download/C/8/7/C87AE67E-A228-48FB-8F02-B2A9A1238099/Windows6.1-KB3033929-x64.msu'
+
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\KB3033929\1.0.3\Windows6.1-KB30
+33929-x64.msu (43.79 MB).
+Download of Windows6.1-KB3033929-x64.msu (43.79 MB) completed.
+Hashes match.
+Installing KB3033929...
+ The install of kb3033929 was successful.
+  Software installed as 'msu', install location is likely default.
+
+KB2919442 v1.0.20160915 [Approved]
+kb2919442 package files install completed. Performing other installation steps.
+The package KB2919442 wants to run 'ChocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): yes
+
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of kb2919442 was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+KB2919355 v1.0.20160915 [Approved]
+kb2919355 package files install completed. Performing other installation steps.
+The package KB2919355 wants to run 'ChocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): yes
+
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of kb2919355 was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+KB2999226 v1.0.20170509 [Approved]
+kb2999226 package files install completed. Performing other installation steps.
+The package KB2999226 wants to run 'chocolateyinstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): yes
+
+Skipping installation because update KB2999226 is already installed.
+ The install of kb2999226 was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+vcredist140 v14.10.25017.0 [Approved]
+vcredist140 package files install completed. Performing other installation steps.
+The package vcredist140 wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): Yes
+
+Downloading vcredist140-x86
+  from 'https://download.microsoft.com/download/1/f/e/1febbdb2-aded-4e14-9063-39fb17e88444/vc_redist.x86.exe'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\vcredist140\14.10.25017.0\vc_re
+dist.x86.exe (13.74 MB).
+Download of vc_redist.x86.exe (13.74 MB) completed.
+Hashes match.
+Installing vcredist140-x86...
+vcredist140-x86 has been installed.
+Downloading vcredist140-x64 64 bit
+  from 'https://download.microsoft.com/download/3/b/f/3bf6e759-c555-4595-8973-86b7b4312927/vc_redist.x64.exe'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\vcredist140\14.10.25017.0\vc_re
+dist.x64.exe (14.55 MB).
+Download of vc_redist.x64.exe (14.55 MB) completed.
+Hashes match.
+Installing vcredist140-x64...
+vcredist140-x64 has been installed.
+  vcredist140 may be able to be automatically uninstalled.
+ The install of vcredist140 was successful.
+  Software installed as 'exe', install location is likely default.
+
+vcredist2015 v14.0.24215.20170201 [Approved]
+vcredist2015 package files install completed. Performing other installation steps.
+ The install of vcredist2015 was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+neovim v0.2.0.20170610 [Approved]
+neovim package files install completed. Performing other installation steps.
+The package neovim wants to run 'chocolateyinstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): Y
+
+Downloading neovim 64 bit
+  from 'https://github.com/neovim/neovim/releases/download/v0.2.0/nvim-win64.zip'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\neovim\0.2.0.20170610\nvim-win6
+4.zip (23.71 MB).
+Download of nvim-win64.zip (23.71 MB) completed.
+Extracting C:\Users\usr0101039\AppData\Local\Temp\chocolatey\neovim\0.2.0.20170610\nvim-win64.zip to C:\tools\neovim...
+C:\tools\neovim
+Please Consider donating https://salt.bountysource.com/teams/neovim
+Issues? Please visit https://github.com/neovim/neovim/wiki/Installing-Neovim
+ The install of neovim was successful.
+  Software installed to 'C:\tools\neovim'
+
+Chocolatey installed 9/9 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Installed:
+ - kb3033929 v1.0.3
+ - chocolatey-windowsupdate.extension v1.0.2
+ - vcredist140 v14.10.25017.0
+ - kb2999226 v1.0.20170509
+ - kb2919355 v1.0.20160915
+ - kb2919442 v1.0.20160915
+ - vcredist2015 v14.0.24215.20170201
+ - kb3035131 v1.0.1
+ - neovim v0.2.0.20170610
+
+Packages requiring reboot:
+ - vcredist140 (exit code 3010)
+
+The recent package changes indicate a reboot is necessary.
+ Please reboot at your earliest convenience.
+PS N:\>
+PS N:\>
+
+
+## vmware player 
+
+https://my.vmware.com/jp/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0
+
+>> Free (仕事で使わない) ライセンス
 
 
