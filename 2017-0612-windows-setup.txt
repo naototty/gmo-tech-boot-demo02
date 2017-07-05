@@ -1,5 +1,53 @@
 # Windows setup 2017-06-12
 
+
+## 0) before install ; select package manager on Windows 7 
+
+### scoop
+ http://scoop.sh/
+>> scoop
+
+Make sure Powershell 3 is installed, then run:
+
+iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+
+
+https://github.com/lukesampson/scoop/wiki
+>>
+
+
+### just-it
+
+https://just-install.it/
+>> 
+
+msiexec.exe /i https://stable.just-install.it
+
+
+https://github.com/just-install/just-install
+
+
+### oneget
+
+https://github.com/OneGet/oneget
+
+
+### kertarin
+
+http://ketarin.canneverbe.com/
+
+### Ninite
+
+https://ninite.com/
+
+
+### chocolatey
+
+
+
+
+
+
 ## 1) Visual Studio Code (stable/blue)
 https://code.visualstudio.com/docs/?dv=win
 
@@ -688,4 +736,494 @@ https://my.vmware.com/jp/web/vmware/free#desktop_end_user_computing/vmware_works
 
 >> Free (仕事で使わない) ライセンス
 
+
+## virtualbox
+
+PS C:\tools\cygwin> choco search virtualbox
+Chocolatey v0.10.7
+virtualbox 5.1.22 [Approved]
+vagrant 1.9.6 [Approved]
+VirtualBox.ExtensionPack 5.1.10.20161223 [Approved]
+packer 1.0.2 [Approved]
+VBoxGuestAdditions.install 4.3.18 - Possibly broken
+andy 0.46.2.25 [Approved] Downloads cached for licensed users
+VBoxHeadlessTray 4.3.0.0 - Possibly broken
+disk2vhd 2.01.0.20160213 [Approved] Downloads cached for licensed users
+VBoxVmService 5.1 [Approved] Downloads cached for licensed users
+otto 0.2.0 [Approved] Downloads cached for licensed users
+psievm 0.2.7.29815 [Approved]
+docker-toolbox 17.05.0 [Approved] Downloads cached for licensed users
+12 packages found.
+PS C:\tools\cygwin> choco install --version=5.1.20 virtualbox
+Chocolatey v0.10.7
+Installing the following packages:
+virtualbox
+By installing you accept licenses for the packages.
+Progress: Downloading virtualbox 5.1.20... 100%
+
+virtualbox v5.1.20 [Approved]
+virtualbox package files install completed. Performing other installation steps.
+The package virtualbox wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): yes
+
+#< CLIXML
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0
+"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</I64><PR N="Record"
+><AV>モジュールを初めて使用するための準備しています。</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1<
+/SR><SD> </SD></PR></MS></Obj><Obj S="progress" RefId="1"><TNRef RefId="0" /><MS><I64 N="SourceId">1</I64><PR N="Record"
+><AV>モジュールを初めて使用するための準備しています。</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1<
+/SR><SD> </SD></PR></MS></Obj><S S="debug">Host version is 4.0, PowerShell Version is '4.0' and CLR Version is '4.0.3031
+9.42000'.</S><S S="verbose">関数 'Format-FileSize' をエクスポートしています。</S><S S="verbose">関数 'Get-ChecksumValid'
+ をエクスポートしています。</S><S S="verbose">関数 'Get-ChocolateyUnzip' をエクスポートしています。</S><S S="verbose">関
+数 'Get-ChocolateyWebFile' をエクスポートしています。</S><S S="verbose">関数 'Get-EnvironmentVariable' をエクスポートし
+ています。</S><S S="verbose">関数 'Get-EnvironmentVariableNames' をエクスポートしています。</S><S S="verbose">関数 'Get-
+FtpFile' をエクスポートしています。</S><S S="verbose">関数 'Get-OSArchitectureWidth' をエクスポートしています。</S><S S=
+"verbose">関数 'Get-ToolsLocation' をエクスポートしています。</S><S S="verbose">関数 'Get-UACEnabled' をエクスポートして
+います。</S><S S="verbose">関数 'Get-UninstallRegistryKey' をエクスポートしています。</S><S S="verbose">関数 'Get-VirusC
+heckValid' をエクスポートしています。</S><S S="verbose">関数 'Get-WebFile' をエクスポートしています。</S><S S="verbose">
+関数 'Get-WebFileName' をエクスポートしています。</S><S S="verbose">関数 'Get-WebHeaders' をエクスポートしています。</S>
+<S S="verbose">関数 'Install-BinFile' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyDesktopLink'
+をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyEnvironmentVariable' をエクスポートしています。</S>
+<S S="verbose">関数 'Install-ChocolateyExplorerMenuItem' をエクスポートしています。</S><S S="verbose">関数 'Install-Choc
+olateyFileAssociation' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyInstallPackage' をエクスポー
+トしています。</S><S S="verbose">関数 'Install-ChocolateyPackage' をエクスポートしています。</S><S S="verbose">関数 'Ins
+tall-ChocolateyPath' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyPinnedTaskBarItem' をエクスポ
+ートしています。</S><S S="verbose">関数 'Install-ChocolateyPowershellCommand' をエクスポートしています。</S><S S="verbos
+e">関数 'Install-ChocolateyShortcut' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyVsixPackage'
+をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyZipPackage' をエクスポートしています。</S><S S="ver
+bose">関数 'Install-Vsix' をエクスポートしています。</S><S S="verbose">関数 'Set-EnvironmentVariable' をエクスポートして
+います。</S><S S="verbose">関数 'Set-PowerShellExitCode' をエクスポートしています。</S><S S="verbose">関数 'Start-Chocol
+ateyProcessAsAdmin' をエクスポートしています。</S><S S="verbose">関数 'Test-ProcessAdminRights' をエクスポートしています
+。</S><S S="verbose">関数 'Uninstall-BinFile' をエクスポートしています。</S><S S="verbose">関数 'Uninstall-ChocolateyEnv
+ironmentVariable' をエクスポートしています。</S><S S="verbose">関数 'Uninstall-ChocolateyPackage' をエクスポートしていま
+す。</S><S S="verbose">関数 'Uninstall-ChocolateyZipPackage' をエクスポートしています。</S><S S="verbose">関数 'Update-S
+essionEnvironment' をエクスポートしています。</S><S S="verbose">関数 'Write-ChocolateyFailure' をエクスポートしています
+。</S><S S="verbose">関数 'Write-ChocolateySuccess' をエクスポートしています。</S><S S="verbose">関数 'Write-FileUpdateL
+og' をエクスポートしています。</S><S S="verbose">関数 'Write-FunctionCallLogMessage' をエクスポートしています。</S><S S=
+"verbose">エイリアス 'Get-ProcessorBits' をエクスポートしています。</S><S S="verbose">エイリアス 'Get-OSBitness' をエク
+スポートしています。</S><S S="verbose">エイリアス 'Get-InstallRegistryKey' をエクスポートしています。</S><S S="verbose">
+エイリアス 'Generate-BinFile' をエクスポートしています。</S><S S="verbose">エイリアス 'Add-BinFile' をエクスポートしてい
+ます。</S><S S="verbose">エイリアス 'Start-ChocolateyProcess' をエクスポートしています。</S><S S="verbose">エイリアス 'I
+nvoke-ChocolateyProcess' をエクスポートしています。</S><S S="verbose">エイリアス 'Remove-BinFile' をエクスポートしていま
+す。</S><S S="verbose">エイリアス 'refreshenv' をエクスポートしています。</S><S S="debug">Loading community extensions</
+S><S S="debug">Importing 'C:\ProgramData\chocolatey\extensions\chocolatey-core\chocolatey-core.psm1'</S><S S="verbose">
+パス 'C:\ProgramData\chocolatey\extensions\chocolatey-core\chocolatey-core.psm1' からモジュールを読み込んでいます。</S><
+S S="verbose">関数 'Get-UninstallRegistryKey' をエクスポートしています。</S><S S="verbose">関数 'Get-AppInstallLocation'
+ をエクスポートしています。</S><S S="verbose">関数 'Get-AvailableDriveLetter' をエクスポートしています。</S><S S="verbos
+e">関数 'Get-EffectiveProxy' をエクスポートしています。</S><S S="verbose">関数 'Get-PackageCacheLocation' をエクスポート
+しています。</S><S S="verbose">関数 'Get-PackageParameters' をエクスポートしています。</S><S S="verbose">関数 'Get-WebCo
+ntent' をエクスポートしています。</S><S S="verbose">関数 'Register-Application' をエクスポートしています。</S><S S="verb
+ose">関数 'Get-AppInstallLocation' をインポートしています。</S><S S="verbose">関数 'Get-AvailableDriveLetter' をインポー
+トしています。</S><S S="verbose">関数 'Get-EffectiveProxy' をインポートしています。</S><S S="verbose">関数 'Get-PackageC
+acheLocation' をインポートしています。</S><S S="verbose">関数 'Get-PackageParameters' をインポートしています。</S><S S="
+verbose">関数 'Get-UninstallRegistryKey' をインポートしています。</S><S S="verbose">関数 'Get-WebContent' をインポートし
+ています。</S><S S="verbose">関数 'Register-Application' をインポートしています。</S><S S="debug">Importing 'C:\ProgramD
+ata\chocolatey\extensions\chocolatey-windowsupdate\chocolatey-windowsupdate.psm1'</S><S S="verbose">パス 'C:\ProgramData
+\chocolatey\extensions\chocolatey-windowsupdate\chocolatey-windowsupdate.psm1' からモジュールを読み込んでいます。</S><S
+S="verbose">関数 'Install-WindowsUpdate' をエクスポートしています。</S><S S="verbose">関数 'Test-WindowsUpdate' をエクス
+ポートしています。</S><S S="verbose">関数 'Install-WindowsUpdate' をインポートしています。</S><S S="verbose">関数 'Test-
+WindowsUpdate' をインポートしています。</S><S S="verbose">関数 'Format-FileSize' をエクスポートしています。</S><S S="ver
+bose">関数 'Get-ChecksumValid' をエクスポートしています。</S><S S="verbose">関数 'Get-ChocolateyUnzip' をエクスポートし
+ています。</S><S S="verbose">関数 'Get-ChocolateyWebFile' をエクスポートしています。</S><S S="verbose">関数 'Get-Environ
+mentVariable' をエクスポートしています。</S><S S="verbose">関数 'Get-EnvironmentVariableNames' をエクスポートしています
+。</S><S S="verbose">関数 'Get-FtpFile' をエクスポートしています。</S><S S="verbose">関数 'Get-OSArchitectureWidth' をエ
+クスポートしています。</S><S S="verbose">関数 'Get-ToolsLocation' をエクスポートしています。</S><S S="verbose">関数 'Get
+-UACEnabled' をエクスポートしています。</S><S S="verbose">関数 'Get-UninstallRegistryKey' をエクスポートしています。</S>
+<S S="verbose">関数 'Get-VirusCheckValid' をエクスポートしています。</S><S S="verbose">関数 'Get-WebFile' をエクスポート
+しています。</S><S S="verbose">関数 'Get-WebFileName' をエクスポートしています。</S><S S="verbose">関数 'Get-WebHeaders'
+ をエクスポートしています。</S><S S="verbose">関数 'Install-BinFile' をエクスポートしています。</S><S S="verbose">関数 '
+Install-ChocolateyDesktopLink' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyEnvironmentVariable'
+ をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyExplorerMenuItem' をエクスポートしています。</S><S
+ S="verbose">関数 'Install-ChocolateyFileAssociation' をエクスポートしています。</S><S S="verbose">関数 'Install-Chocola
+teyInstallPackage' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyPackage' をエクスポートしていま
+す。</S><S S="verbose">関数 'Install-ChocolateyPath' をエクスポートしています。</S><S S="verbose">関数 'Install-Chocolat
+eyPinnedTaskBarItem' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyPowershellCommand' をエクスポ
+ートしています。</S><S S="verbose">関数 'Install-ChocolateyShortcut' をエクスポートしています。</S><S S="verbose">関数 '
+Install-ChocolateyVsixPackage' をエクスポートしています。</S><S S="verbose">関数 'Install-ChocolateyZipPackage' をエクス
+ポートしています。</S><S S="verbose">関数 'Install-Vsix' をエクスポートしています。</S><S S="verbose">関数 'Set-Environm
+entVariable' をエクスポートしています。</S><S S="verbose">関数 'Set-PowerShellExitCode' をエクスポートしています。</S><S
+ S="verbose">関数 'Start-ChocolateyProcessAsAdmin' をエクスポートしています。</S><S S="verbose">関数 'Test-ProcessAdminR
+ights' をエクスポートしています。</S><S S="verbose">関数 'Uninstall-BinFile' をエクスポートしています。</S><S S="verbose
+">関数 'Uninstall-ChocolateyEnvironmentVariable' をエクスポートしています。</S><S S="verbose">関数 'Uninstall-Chocolatey
+Package' をエクスポートしています。</S><S S="verbose">関数 'Uninstall-ChocolateyZipPackage' をエクスポートしています。</
+S><S S="verbose">関数 'Update-SessionEnvironment' をエクスポートしています。</S><S S="verbose">関数 'Write-ChocolateyFai
+lure' をエクスポートしています。</S><S S="verbose">関数 'Write-ChocolateySuccess' をエクスポートしています。</S><S S="ve
+rbose">関数 'Write-FileUpdateLog' をエクスポートしています。</S><S S="verbose">関数 'Write-FunctionCallLogMessage' をエ
+クスポートしています。</S><S S="verbose">関数 'Get-AppInstallLocation' をエクスポートしています。</S><S S="verbose">関数
+ 'Get-AvailableDriveLetter' をエクスポートしています。</S><S S="verbose">関数 'Get-EffectiveProxy' をエクスポートしてい
+ます。</S><S S="verbose">関数 'Get-PackageCacheLocation' をエクスポートしています。</S><S S="verbose">関数 'Get-PackageP
+arameters' をエクスポートしています。</S><S S="verbose">関数 'Get-WebContent' をエクスポートしています。</S><S S="verbos
+e">関数 'Register-Application' をエクスポートしています。</S><S S="verbose">関数 'Install-WindowsUpdate' をエクスポート
+しています。</S><S S="verbose">関数 'Test-WindowsUpdate' をエクスポートしています。</S><S S="verbose">エイリアス 'Get-Pr
+ocessorBits' をエクスポートしています。</S><S S="verbose">エイリアス 'Get-OSBitness' をエクスポートしています。</S><S S=
+"verbose">エイリアス 'Get-InstallRegistryKey' をエクスポートしています。</S><S S="verbose">エイリアス 'Generate-BinFile'
+ をエクスポートしています。</S><S S="verbose">エイリアス 'Add-BinFile' をエクスポートしています。</S><S S="verbose">エイ
+リアス 'Start-ChocolateyProcess' をエクスポートしています。</S><S S="verbose">エイリアス 'Invoke-ChocolateyProcess' をエ
+クスポートしています。</S><S S="verbose">エイリアス 'Remove-BinFile' をエクスポートしています。</S><S S="verbose">エイリ
+アス 'refreshenv' をエクスポートしています。</S></Objs>
+0
+Downloading virtualbox 64 bit
+  from 'http://download.virtualbox.org/virtualbox/5.1.20/VirtualBox-5.1.20-114628-Win.exe'
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\virtualbox\5.1.20\VirtualBox-5.
+1.20-114628-Win.exe (117.71 MB).
+Download of VirtualBox-5.1.20-114628-Win.exe (117.71 MB) completed.
+Hashes match.
+Installing virtualbox...
+virtualbox has been installed.
+Installing extension pack
+Downloading virtualbox-extensionpack 64 bit
+  from 'http://download.virtualbox.org/virtualbox/5.1.20/Oracle_VM_VirtualBox_Extension_Pack-5.1.20.vbox-extpack'
+WARNING: C:\Users\usr0101039\AppData\Local\Temp\chocolatey\virtualbox\5.1.20\Oracle_VM_VirtualBox_Extension_Pack-5.1.20.
+vbox-extpack is of content type text/plain
+Progress: 100% - Completed download of C:\Users\usr0101039\AppData\Local\Temp\chocolatey\virtualbox\5.1.20\Oracle_VM_Vir
+tualBox_Extension_Pack-5.1.20.vbox-extpack (18.65 MB).
+Download of Oracle_VM_VirtualBox_Extension_Pack-5.1.20.vbox-extpack (18.65 MB) completed.
+Hashes match.
+C:\Users\usr0101039\AppData\Local\Temp\chocolatey\virtualbox\5.1.20\Oracle_VM_VirtualBox_Extension_Pack-5.1.20.vbox-extp
+ack
+VirtualBox Personal Use and Evaluation License (PUEL)
+
+License version 9, 17 November 2016
+
+ORACLE AMERICA, INC. ("ORACLE") IS WILLING TO LICENSE THE PRODUCT DEFINED
+IN SECTION 1 BELOW ONLY ON THE CONDITION THAT YOU ACCEPT ALL OF THE TERMS
+CONTAINED IN THIS VIRTUALBOX PERSONAL USE AND EVALUATION LICENSE AGREEMENT
+("AGREEMENT").
+
+IF YOU ARE AGREEING TO THIS LICENSE ON BEHALF OF AN ENTITY (RATHER THAN
+AS AN INDIVIDUAL HUMAN BEING), YOU REPRESENT THAT YOU HAVE THE APPROPRIATE
+AUTHORITY TO ACCEPT THESE TERMS AND CONDITIONS ON BEHALF OF SUCH ENTITY.
+
+1 SUBJECT OF AGREEMENT. This Agreement governs your use of the binary
+software package called "Oracle VM VirtualBox Extension Pack" (the
+"Product"), which contains a set of Enterprise Features for "Oracle VM
+VirtualBox" that allows multiple virtual computers ("Guest Computers")
+to exist on a single physical computer ("Host Computer"). The Product
+consists of executable files in machine code, data files, and all
+documentation and updates provided to You by Oracle.
+
+2 GRANT OF LICENSE. Oracle grants you a personal, non-exclusive,
+non-transferable, limited license without fees to reproduce, install,
+execute, and use internally the Product on Host Computers for your
+Personal Use, Educational Use, or Evaluation. "Personal Use" is use
+solely by the person downloading the Product from Oracle on a single
+Host Computer, provided that no more than one client or remote computer
+is connected to that Host Computer and that client or remote computer
+is used solely to remotely view the Guest Computers. "Educational Use"
+is any use by teachers or students in an academic institution (schools,
+colleges and universities) as part of the institutions educational
+curriculum. "Evaluation" means testing the Product for up to thirty
+(30) days; after expiry of that term, you are no longer permitted to
+use the Product.
+
+All rights not expressly licensed by Oracle are hereby reserved.
+
+3 RESTRICTIONS AND RESERVATION OF RIGHTS. (1) The Product and copies
+thereof provided to you under this Agreement are copyrighted and licensed,
+not sold, to you by Oracle.
+
+(2) You may not do any of the following: (a) modify any part of the
+Product, except to the extent allowed in the documentation accompanying
+the Product; (b) rent, lease, lend or encumber the Product; (c) remove
+or alter any proprietary legends or notices contained in the Product;
+or (d) decompile, or reverse engineer the Product (except to the extent
+permitted by applicable law).
+
+(3) The Product is not designed, licensed or intended for use in the
+design, construction, operation or maintenance of any nuclear facility
+and Oracle and its licensors disclaim any express or implied warranty
+of fitness for such uses.
+
+(4) No right, title or interest in or to any trademark, service mark, logo
+or trade name of Oracle or its licensors is granted under this Agreement.
+
+4 TERMINATION. The Agreement is effective on the date you receive the
+Product and remains effective until terminated. Your rights under this
+Agreement will terminate immediately without notice from Oracle if
+you materially breach it or take any action in derogation of Oracle's
+and/or its licensors' rights to Product. Oracle may terminate this
+Agreement should any part of the Product become or in Oracle's reasonable
+opinion likely to become the subject of a claim of intellectual property
+infringement or trade secret misappropriation. Upon termination, you will
+cease use of and destroy all copies of the Product under your control
+and confirm compliance in writing to Oracle. Sections 3-9, inclusive,
+will survive termination of the Agreement.
+
+5 DISCLAIMER OF WARRANTY. TO THE EXTENT NOT PROHIBITED BY APPLICABLE
+LAW, ORACLE PROVIDES THE PRODUCT "AS IS" WITHOUT WARRANTY OF ANY KIND,
+EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+NON-INFRINGEMENT, EXCEPT TO THE EXTENT THAT THESE DISCLAIMERS ARE HELD TO
+BE LEGALLY INVALID. The entire risk as to the quality and performance of
+the Product is with you. Should it prove defective, you assume the cost
+of all necessary servicing, repair, or correction. In addition, Oracle
+shall be allowed to provide updates to the Product in urgent cases. You
+are then obliged to install such updates. Such an urgent case includes,
+but is not limited to, a claim of rights to the Product by a third party.
+
+6 LIMITATION OF LIABILITY. TO THE EXTENT NOT PROHIBITED BY APPLICABLE LAW,
+IN NO EVENT WILL ORACLE OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE,
+PROFIT OR DATA, OR FOR SPECIAL, INDIRECT, CONSEQUENTIAL, INCIDENTAL OR
+PUNITIVE DAMAGES, HOWEVER CAUSED REGARDLESS OF THE THEORY OF LIABILITY,
+ARISING OUT OF OR RELATED TO THE USE OF OR INABILITY TO USE PRODUCT,
+EVEN IF ORACLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. In
+no event will Oracle's liability to you, whether in contract, tort
+(including negligence), or otherwise, exceed the amount paid by you for
+Product under this Agreement. Some states do not allow the exclusion of
+incidental or consequential damages, so some of the terms above may not
+be applicable to you.
+
+7 THIRD PARTY CODE. Portions of Product may be provided with notices and
+open source licenses from communities and third parties that govern the
+use of those portions, and any licenses granted hereunder do not alter
+any rights and obligations You may have under such open source licenses,
+however, the disclaimer of warranty and limitation of liability provisions
+in this Agreement will apply to all of the Product.
+
+8 EXPORT REGULATIONS. All Product, documents, technical data, and any
+other materials delivered under this Agreement are subject to U.S. export
+control laws and may be subject to export or import regulations in other
+countries. You agree to comply strictly with these laws and regulations
+and acknowledge that you have the responsibility to obtain any licenses
+to export, re-export, or import as may be required after delivery to you.
+
+9 U.S. GOVERNMENT END USERS. If the Product or related documentation is
+delivered to the U.S. Government or anyone licensing it on behalf of the
+U.S. Government, then the following notice applies: Oracle programs,
+including any operating system, integrated software, any programs
+installed on hardware, and/or documentation, delivered to U.S. Government
+end users are "commercial computer software" pursuant to the applicable
+Federal Acquisition Regulation and agency-specific supplemental
+regulations. As such, use, duplication, disclosure, modification, and
+adaptation of the programs, including any operating system, integrated
+software, any programs installed on the hardware, and/or documentation,
+shall be subject to license terms and license restrictions applicable
+to the programs. No other rights are granted to the U.S. Government.
+
+10 MISCELLANEOUS. This Agreement is the entire agreement between you
+and Oracle relating to its subject matter. It supersedes all prior or
+contemporaneous oral or written communications, proposals, representations
+and warranties and prevails over any conflicting or additional terms
+of any quote, order, acknowledgment, or other communication between
+the parties relating to its subject matter during the term of this
+Agreement. No modification of this Agreement will be binding, unless in
+writing and signed by an authorized representative of each party. If any
+provision of this Agreement is held to be unenforceable, this Agreement
+will remain in effect with the provision omitted, unless omission would
+frustrate the intent of the parties, in which case this Agreement will
+immediately terminate. Course of dealing and other standard business
+conditions of the parties or the industry shall not apply. This Agreement
+is governed by the substantive and procedural laws of the State of
+California, USA, and you and Oracle agree to submit to the exclusive
+jurisdiction of, and venue in, the courts of San Francisco or Santa
+Clara counties in California in any dispute arising out of or relating
+to this Agreement.
+
+Do you agree to these license terms and conditions (y/n)?
+License accepted. For batch installaltion add
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+--accept-license=715c7246dc0f779ceab39446812362b2f9bf64a55ed5d3a905f053cfab36da9e
+to the VBoxManage command line.
+
+Successfully installed "Oracle VM VirtualBox Extension Pack".
+Adding to PATH if needed
+PATH environment variable does not have C:\Program Files\Oracle\VirtualBox in it. Adding...
+virtualbox installed to 'C:\Program Files\Oracle\VirtualBox'
+virtualbox registered as vbox
+Only an exit code of non-zero will fail the package by default. Set
+ `--failonstderr` if you want error messages to also fail a script. See
+ `choco -h` for details.
+  virtualbox may be able to be automatically uninstalled.
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of virtualbox was successful.
+  Software installed as 'EXE', install location is likely default.
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\tools\cygwin>
+
+
+## VScode環境
+
+cygwinをTerminalにする user.json 設定
+
+その他設定追加
+
+ext install python
+ext install pylint
+ext install Remote VScode
+
+
+
+## cygwin python env
+
+cygwin環境の整備
+
+$ easy_install-2.7 pip
+
+
+
+usr0101039@YIND0535 ~
+$ cd ~/
+
+usr0101039@YIND0535 ~
+$ pwd
+/home/usr0101039
+
+usr0101039@YIND0535 ~
+$ git clone https://github.com/yyuu/pyenv.git .pyenv
+Cloning into '.pyenv'...
+remote: Counting objects: 15142, done.
+remote: Compressing objects: 100% (65/65), done.
+remote: Total 15142 (delta 65), reused 112 (delta 50), pack-reused 15011
+Receiving objects: 100% (15142/15142), 2.70 MiB | 882.00 KiB/s, done.
+Resolving deltas: 100% (10357/10357), done.
+
+usr0101039@YIND0535 ~
+
+usr0101039@YIND0535 ~
+$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+Cloning into '/home/usr0101039/.pyenv'...
+remote: Counting objects: 15142, done.
+remote: Compressing objects: 100% (65/65), done.
+remote: Total 15142 (delta 65), reused 112 (delta 50), pack-reused 15011
+Receiving objects: 100% (15142/15142), 2.70 MiB | 407.00 KiB/s, done.
+Resolving deltas: 100% (10357/10357), done.
+Checking out files: 100% (577/577), done.
+
+usr0101039@YIND0535 ~
+
+
+usr0101039@YIND0535 ~
+$ git clone https://github.com/yyuu/pyenv-pip-rehash.git $HOME/.pyenv/plugins/pyenv-pip-rehash
+Cloning into '/home/usr0101039/.pyenv/plugins/pyenv-pip-rehash'...
+remote: Counting objects: 131, done.
+Rremote: Total 131 (delta 0), reused 0 (delta 0), pack-reused 131
+Receiving objects: 100% (131/131), 17.19 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (59/59), done.
+
+usr0101039@YIND0535 ~
+
+
+usr0101039@YIND0535 ~
+$ pip install pyenv
+Collecting pyenv
+  Downloading pyenv-20150113.1.tar.gz
+Installing collected packages: pyenv
+  Running setup.py install for pyenv ... error
+    Complete output from command /usr/bin/python2 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-HuY3eg/pyenv/setup.py';f=ge
+tattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --re
+cord /tmp/pip-LOT4Hm-record/install-record.txt --single-version-externally-managed --compile:
+    usage: -c [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+       or: -c --help [cmd1 cmd2 ...]
+       or: -c --help-commands
+       or: -c cmd --help
+
+    error: option --single-version-externally-managed not recognized
+
+    ----------------------------------------
+Command "/usr/bin/python2 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-HuY3eg/pyenv/setup.py';f=getattr(tokenize, 'open',
+open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-LOT4Hm-rec
+ord/install-record.txt --single-version-externally-managed --compile" failed with error code 1 in /tmp/pip-build-HuY3eg/pyenv/
+
+usr0101039@YIND0535 ~
+
+usr0101039@YIND0535 ~
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+
+usr0101039@YIND0535 ~
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+
+usr0101039@YIND0535 ~
+$ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+usr0101039@YIND0535 ~
+$ source ~/.bashrc
+bash: pyenv: command not found
+
+
+
+## virtualenv
+
+https://github.com/gccpacman/cygwin-virtualenv-virtualenvwrapper-
+
+
+
+
+usr0101039@YIND0535 ~
+$ pip install virtualenv
+Collecting virtualenv
+  Downloading virtualenv-15.1.0-py2.py3-none-any.whl (1.8MB)
+    100% |████████████████████████████████| 1.8MB 494kB/s
+Installing collected packages: virtualenv
+Successfully installed virtualenv-15.1.0
+
+usr0101039@YIND0535 ~
+$ pip install virtualenvwrapper
+Collecting virtualenvwrapper
+  Downloading virtualenvwrapper-4.7.2.tar.gz (90kB)
+    100% |████████████████████████████████| 92kB 1.7MB/s
+Requirement already satisfied: virtualenv in /usr/lib/python2.7/site-packages (from virtualenvwrapper
+)
+Collecting virtualenv-clone (from virtualenvwrapper)
+  Downloading virtualenv-clone-0.2.6.tar.gz
+Collecting stevedore (from virtualenvwrapper)
+  Downloading stevedore-1.23.0-py2.py3-none-any.whl
+Requirement already satisfied: six>=1.9.0 in /usr/lib/python2.7/site-packages (from stevedore->virtua
+lenvwrapper)
+Collecting pbr!=2.1.0,>=2.0.0 (from stevedore->virtualenvwrapper)
+  Downloading pbr-3.1.1-py2.py3-none-any.whl (99kB)
+    100% |████████████████████████████████| 102kB 2.4MB/s
+Installing collected packages: virtualenv-clone, pbr, stevedore, virtualenvwrapper
+  Running setup.py install for virtualenv-clone ... done
+  Running setup.py install for virtualenvwrapper ... done
+Successfully installed pbr-3.1.1 stevedore-1.23.0 virtualenv-clone-0.2.6 virtualenvwrapper-4.7.2
+
+usr0101039@YIND0535 ~
+
+
+
+
+W
+$ mk
+mkdir.exe       mkgroup.exe     mkpasswd.exe    mkshortcut.exe  mktmpenv
+mkfifo.exe      mknod.exe       mkproject       mktemp.exe      mkvirtualenv
+
+usr0101039@YIND0535 ~
+$ mk
+mkdir.exe       mkgroup.exe     mkpasswd.exe    mkshortcut.exe  mktmpenv
+mkfifo.exe      mknod.exe       mkproject       mktemp.exe      mkvirtualenv
+
+usr0101039@YIND0535 ~
+$ mkvirtualenv openstack
+New python executable in /cygdrive/c/tools/virtualenvs/openstack/bin/python2
+Also creating executable in /cygdrive/c/tools/virtualenvs/openstack/bin/python
+Installing setuptools, pip, wheel...done.
+virtualenvwrapper.user_scripts creating /cygdrive/c/tools/virtualenvs/openstack/bin/predeactivate
+virtualenvwrapper.user_scripts creating /cygdrive/c/tools/virtualenvs/openstack/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /cygdrive/c/tools/virtualenvs/openstack/bin/preactivate
+virtualenvwrapper.user_scripts creating /cygdrive/c/tools/virtualenvs/openstack/bin/postactivate
+virtualenvwrapper.user_scripts creating /cygdrive/c/tools/virtualenvs/openstack/bin/get_env_details
+(openstack)
+usr0101039@YIND0535 ~
+$
+(openstack)
+usr0101039@YIND0535 ~
+$ tail .bashrc
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+
+## virtualenv
+export WORKON_HOME=/cygdrive/c/tools/virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+
+(openstack)
+usr0101039@YIND0535 ~
 
