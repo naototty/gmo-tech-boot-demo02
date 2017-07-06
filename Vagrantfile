@@ -195,11 +195,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     conoha.tenant_name        = "#{ENV['OS_TENANT_NAME']}"
 
     conoha.flavor             = 'g-1gb'
-    conoha.image              = 'vmi-centos-6.7-amd64'
+    ## conoha.image              = 'vmi-centos-6.7-amd64'
+    conoha.image              = 'vmi-centos-6.9-amd64'
     conoha.region             = "#{ENV['OS_REGION_NAME']}"
     conoha.admin_pass         = "AdminPass2983*"
+    #conoha.metadata           = {
+    #  instance_name_tag: "vagrant_web_ce67"
+    #}
     conoha.metadata           = {
-      instance_name_tag: "vagrant_web_ce67"
+      instance_name_tag: "vagrant_web_ce69"
     }
     conoha.security_groups    = [
       "default",
@@ -209,6 +213,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     conoha.keypair_name       = "my-local-key"
     config.ssh.private_key_path = "~/.ssh/id_rsa"
     config.ssh.pty = true
+
+    # conoha.user_data = ""
+    conoha.user_data = "./init_cloud.sh"
 
     config.vm.provision :shell, :inline => $script_node1
   end
