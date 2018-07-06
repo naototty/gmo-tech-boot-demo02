@@ -71,7 +71,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   config.vm.box = "gtb-centos65-x64"
   ## config.vm.box = "puphpet/centos65-x64"
-  config.vm.box_url = "https://conoha.macpoi.me/demo02/gtb-centos65-x64.box"
+  ## config.vm.box_url = "https://conoha.macpoi.me/demo02/gtb-centos65-x64.box"
+  config.vm.box_url = "http://conoha.macpoi.me:10080/demo02/gtb-centos65-x64.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
